@@ -2,19 +2,24 @@
 
 .main {
   font-family: inter;
+  color: black;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100%;
 }
 
-.form {
-  font-family: inter;
-  background-color: antiquewhite;
-  width: 50%;
+.dosen {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listDosen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+}
+
+.backHome{
+    margin-top: 10rem;
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import muliaLogo from "@/img/um.png";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <a
+        <Link
           href="/pakar"
           className={styles.card}
           target="_blank"
@@ -37,10 +38,10 @@ export default function Home() {
             Uji coba Sistem Pakar Risk Assessment Keamanan Sistem Informasi
             Berdasarkan Iso 270002 Dengan Metode Certainty Factor
           </p>
-        </a>
+        </Link>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/tentang-sistem"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -49,10 +50,10 @@ export default function Home() {
             Tentang Sistem <span>-&gt;</span>
           </h2>
           <p>Pelajari lebih jauh tentang sistem pakar</p>
-        </a>
+        </Link>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/tentang-peneliti"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -61,10 +62,10 @@ export default function Home() {
             Tentang Peneliti <span>-&gt;</span>
           </h2>
           <p>Berisi biodata singkat tentang penliti</p>
-        </a>
+        </Link>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/dosen"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -73,7 +74,7 @@ export default function Home() {
             Dosen pembimbing dan Penguji <span>-&gt;</span>
           </h2>
           <p>Berisi biodata singkat dosen pembimbing dan penguji</p>
-        </a>
+        </Link>
       </div>
     </main>
   );
