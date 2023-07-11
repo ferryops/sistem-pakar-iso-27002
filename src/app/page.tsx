@@ -1,55 +1,42 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import muliaLogo from "@/img/um.png";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          Selamat datang di sistem pakar Risk Assessment Keamanan Sistem
+          Informasi Berdasarkan Iso 270002 Dengan Metode Certainty Factor
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
       </div>
 
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src={muliaLogo}
+          alt="Logo Mulia"
+          width={200}
+          height={200}
           priority
         />
       </div>
 
       <div className={styles.grid}>
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/pakar"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Docs <span>-&gt;</span>
+            Coba Sistem <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <p>
+            Uji coba Sistem Pakar Risk Assessment Keamanan Sistem Informasi
+            Berdasarkan Iso 270002 Dengan Metode Certainty Factor
+          </p>
         </a>
 
         <a
@@ -59,9 +46,9 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2>
-            Learn <span>-&gt;</span>
+            Tentang Sistem <span>-&gt;</span>
           </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+          <p>Pelajari lebih jauh tentang sistem pakar</p>
         </a>
 
         <a
@@ -71,9 +58,9 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2>
-            Templates <span>-&gt;</span>
+            Tentang Peneliti <span>-&gt;</span>
           </h2>
-          <p>Explore the Next.js 13 playground.</p>
+          <p>Berisi biodata singkat tentang penliti</p>
         </a>
 
         <a
@@ -83,13 +70,11 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2>
-            Deploy <span>-&gt;</span>
+            Dosen pembimbing dan Penguji <span>-&gt;</span>
           </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+          <p>Berisi biodata singkat dosen pembimbing dan penguji</p>
         </a>
       </div>
     </main>
-  )
+  );
 }
