@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap");
+
+.main {
+  font-family: inter;
+  display: flex;
+  height: 100vh;
+}
+.left {
+  font-family: inter;
+  background-color: rgba(0, 0, 255, 0.373);
+  width: 20%;
+  padding: 10px;
+}
+.left h3 {
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.left h4 {
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.right {
+  width: 80%;
+  background-color: aquamarine;
+  padding: 10px;
+}
+.dosen {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.listDosen {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+}

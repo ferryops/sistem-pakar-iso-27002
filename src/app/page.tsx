@@ -41,7 +41,7 @@ export default function Home() {
         </Link>
 
         <Link
-          href="/tentang-sistem"
+          href="/about"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function Home() {
         </Link>
 
         <Link
-          href="/tentang-peneliti"
+          href="/about"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default function Home() {
         </Link>
 
         <Link
-          href="/dosen"
+          href="/about"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
