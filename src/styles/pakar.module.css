@@ -45,6 +45,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
+  /* background-color: red; */
 }
 .ulItem {
   display: flex;
@@ -89,6 +90,9 @@
   .main {
     width: 90%;
   }
+  .ul{
+    padding: 0;
+  }
   .form {
     padding: 0;
   }
@@ -101,6 +105,9 @@
 @media (max-width: 800px) {
   .main {
     width: 90%;
+  }
+  .ul{
+    padding: 0;
   }
   .form {
     padding: 0;
