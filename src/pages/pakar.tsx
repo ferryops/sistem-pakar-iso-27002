@@ -1,43 +1,44 @@
 import styles from "@/styles/pakar.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Head from "next/head";
 export default function Pakar() {
   const [aspek, setAspek] = useState("");
   const [risk1, setRisk1] = useState<number>(3);
   const [risk2, setRisk2] = useState<number>(3);
   const [risk3, setRisk3] = useState<number>(3);
   const [risk4, setRisk4] = useState<number>(3);
-  const [hasil, setHasil] = useState("");
-  const [rekomendasi, setRekomendasi] = useState("");
+  const [hasil, setHasil] = useState([
+    {
+      nama: "",
+      hasil: "",
+      jenisKelamin: "",
+    },
+  ]);
 
   const kirim = () => {
     let total = (risk1 + risk2 + risk3 + risk4) / 4;
-    // switch (total) {
-    //   case 1:
-    //     setHasil("1");
-    //     setRekomendasi("sebaiknya 1");
-    //     break;
-    //   case 2:
-    //     setHasil("2");
-    //     setRekomendasi("sebaiknya 1");
-    //     break;
-    //   case 3:
-    //     setHasil("3");
-    //     setRekomendasi("sebaiknya 1");
-    //     break;
-    //   default:
-    //     setHasil("4");
-    //     setRekomendasi("null");
-    // }
-    // alert(`${aspek} memiliki nilai risk ${hasil} /n ${rekomendasi}`);
+  
+    setHasil((prevHasil) => [
+      ...prevHasil,
+      {
+        nama: aspek,
+        hasil: total.toString(),
+        jenisKelamin: "",
+      },
+    ]);
+  };
 
-    alert(`${total}`);
+  const hapus = (index: any) => {
+    setHasil(hasil.filter((element, i) => i !== index));
   };
 
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Sistem Pakar | Dashboard</title>
+      </Head>
       <h1>Sistem Pakar</h1>
       <div className={styles.form}>
-        <span>Form</span>
         <input
           type="text"
           placeholder="Aspek Keamanan"
@@ -91,8 +92,17 @@ export default function Pakar() {
             <option value="0">Very Low Risk</option>
           </select>
         </div>
+        <button onClick={kirim}>kirim</button>
       </div>
-      <button onClick={kirim}>kirim</button>
+      <ul>
+        {hasil.map((nilai, index) => (
+          <li key={index}>
+            <span>{nilai.nama}</span>
+            <span>{nilai.hasil}</span>
+            <button onClick={() => hapus(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }

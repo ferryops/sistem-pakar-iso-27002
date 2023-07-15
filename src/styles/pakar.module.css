@@ -10,11 +10,13 @@
 
 .form {
   font-family: inter;
-  background-color: antiquewhite;
+  background-color: #091027;
+  color: #9A9A9A;
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  padding: 10px;
 }

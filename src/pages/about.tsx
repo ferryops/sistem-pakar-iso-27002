@@ -5,6 +5,7 @@ import { GrSystem } from "react-icons/gr";
 import { PiStudentBold } from "react-icons/pi";
 import { LiaChalkboardTeacherSolid } from "react-icons/lia";
 import { VscDebugStart } from "react-icons/vsc";
+import Head from "next/head";
 
 export default function About() {
   const [viewSistem, setViewSistem] = useState(true);
@@ -31,6 +32,9 @@ export default function About() {
   return (
     <>
       <main className={styles.main}>
+        <Head>
+          <title>Sistem Pakar | About</title>
+        </Head>
         <div className={styles.left}>
           <h4 onClick={clickSistem}>
             <GrSystem />

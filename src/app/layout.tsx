@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sistem Pakar | Denny Hadi Pratama",
+  title: "Sistem Pakar | Home",
   description:
     "Risk Assessment Keamanan Sistem Informasi Berdasarkan Iso 270002 Dengan Metode Certainty Factor",
 };
