@@ -1,7 +1,23 @@
 import styles from "@/styles/pakar.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Head from "next/head";
+import {
+  Table,
+  Button,
+  Input,
+  Modal,
+  Row,
+  Checkbox,
+  Text,
+} from "@nextui-org/react";
+
 export default function Pakar() {
+  const [modalError, setModalError] = useState(false);
+  const closeHandler = () => {
+    setModalError(false);
+    console.log("closed");
+  };
+
   const [aspek, setAspek] = useState("");
   const [risk1, setRisk1] = useState<number>(3);
   const [risk2, setRisk2] = useState<number>(3);
@@ -11,21 +27,27 @@ export default function Pakar() {
     {
       nama: "",
       hasil: "",
-      jenisKelamin: "",
+      rekomendasi: "",
     },
   ]);
 
   const kirim = () => {
+    if (aspek === "") {
+      setModalError(true);
+      return;
+    }
     let total = (risk1 + risk2 + risk3 + risk4) / 4;
-  
+
     setHasil((prevHasil) => [
       ...prevHasil,
       {
         nama: aspek,
         hasil: total.toString(),
-        jenisKelamin: "",
+        rekomendasi:
+          "lorem ipsum dolor sit amet, consectetur adip   incididunt ut labore et        dolore magna aliqu Lorem ipsum dolor sit amet",
       },
     ]);
+    setAspek("");
   };
 
   const hapus = (index: any) => {
@@ -38,71 +60,165 @@ export default function Pakar() {
         <title>Sistem Pakar | Dashboard</title>
       </Head>
       <h1>Sistem Pakar</h1>
+      <Input
+        clearable
+        bordered
+        labelPlaceholder="Nama Aspek "
+        onChange={(e) => setAspek(e.target.value)}
+        fullWidth
+        value={aspek}
+      />
+
+      {/* div form */}
       <div className={styles.form}>
-        <input
-          type="text"
-          placeholder="Aspek Keamanan"
-          onChange={(e) => setAspek(e.target.value)}
-        />
-        <div>
-          <span>parameter 1</span>
-          <select
-            id="risk"
-            onChange={(e) => setRisk1(parseInt(e.target.value))}
-          >
-            <option value="3">High Risk</option>
-            <option value="2">Medium Risk</option>
-            <option value="1">Low Risk</option>
-            <option value="0">Very Low Risk</option>
-          </select>
+        {/* Kontrol keamanan 1 */}
+        <div className={styles.parameter}>
+          <span>Kebijakan keamanan informasi</span>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>
+                Kebijakan keamanan informasi telah dikembangkan dan
+                dokumentasikan dengan jelas
+              </span>
+            </div>
+
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>
+                Kebijakan mencakup komitmen manajemen atas keamanan informasi
+              </span>
+            </div>
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>
+                Kebijakan memperhitungkan tujuan organisasi dan kebutuhan bisnis
+              </span>
+            </div>
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <span>parameter 1</span>
-          <select
-            id="risk"
-            onChange={(e) => setRisk2(parseInt(e.target.value))}
-          >
-            <option value="3">High Risk</option>
-            <option value="2">Medium Risk</option>
-            <option value="1">Low Risk</option>
-            <option value="0">Very Low Risk</option>
-          </select>
+        {/* kontrol keamanan 2 */}
+        <div className={styles.parameter}>
+          <span>Organisasi keamanan informasi</span>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>Lorem</span>
+            </div>
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>Lorem</span>
+            </div>
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
+          <div className={styles.ul}>
+            <div className={styles.ulItem}>
+              <li />
+              <span>Lorem</span>
+            </div>
+            <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
+              <option value="3">High Risk</option>
+              <option value="2">Medium Risk</option>
+              <option value="1">Low Risk</option>
+              <option value="0">Very Low Risk</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <span>parameter 1</span>
-          <select
-            id="risk"
-            onChange={(e) => setRisk3(parseInt(e.target.value))}
-          >
-            <option value="3">High Risk</option>
-            <option value="2">Medium Risk</option>
-            <option value="1">Low Risk</option>
-            <option value="0">Very Low Risk</option>
-          </select>
-        </div>
-        <div>
-          <span>parameter 1</span>
-          <select
-            id="risk"
-            onChange={(e) => setRisk4(parseInt(e.target.value))}
-          >
-            <option value="3">High Risk</option>
-            <option value="2">Medium Risk</option>
-            <option value="1">Low Risk</option>
-            <option value="0">Very Low Risk</option>
-          </select>
-        </div>
-        <button onClick={kirim}>kirim</button>
       </div>
-      <ul>
-        {hasil.map((nilai, index) => (
-          <li key={index}>
-            <span>{nilai.nama}</span>
-            <span>{nilai.hasil}</span>
-            <button onClick={() => hapus(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+
+      {/* button action */}
+      <Button color="primary" auto onClick={kirim}>
+        Analisa
+      </Button>
+
+      {/* div result */}
+      <div className={styles.result}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>ASPEK</th>
+              <th>SKOR</th>
+              <th>REKOMENDASI</th>
+              <th>AKSI</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hasil.map((nilai, index) => (
+              <tr key={index}>
+                <td>{nilai.nama}</td>
+                <td>{nilai.hasil}</td>
+                <td>{nilai.rekomendasi}</td>
+                <td>
+                  <Button color="error" auto onClick={() => hapus(index)}>
+                    hapus
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Modal */}
+      <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={modalError}
+        onClose={closeHandler}
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18} color="error">
+            Error
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Text>Nama aspek tidak boleh kosong</Text>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onPress={closeHandler}>
+            Close
+          </Button>
+          <Button auto onPress={closeHandler}>
+            Sign in
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </main>
   );
 }

@@ -6,17 +6,106 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  gap: 1rem;
+  width: 50%;
+  margin: auto;
+}
+.form {
+  width: 100%;
+  font-family: inter;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 20px;
+  /* background-color:darkseagreen; */
 }
 
-.form {
-  font-family: inter;
-  background-color: #091027;
-  color: #9A9A9A;
-  width: 50%;
+.parameter {
   display: flex;
+  gap: 10px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  padding: 10px;
+  /* background-color: aqua; */
+  width: 100%;
+}
+.ul select {
+  width: auto;
+  border-radius: 12px;
+  height: 40px;
+  display: flex;
+  cursor: pointer;
+}
+.ul select option {
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.ulItem {
+  display: flex;
+}
+
+.result {
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+}
+
+.table-container {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #e3e3e3;
+}
+
+
+/* phone */
+@media (max-width: 500px) {
+  .main {
+    width: 90%;
+  }
+  .form {
+    padding: 0;
+  }
+  .parameter {
+    padding: 0;
+  }
+}
+
+/* tab */
+@media (max-width: 800px) {
+  .main {
+    width: 90%;
+  }
+  .form {
+    padding: 0;
+  }
+  .parameter {
+    padding: 0;
+  }
 }
