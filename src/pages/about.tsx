@@ -58,9 +58,9 @@ export default function About() {
             <div>
               <h3>Tentang Sistem</h3>
               <p>
-                "Sistem pakar Risk Assessment Keamanan Sistem Informasi
-                berdasarkan ISO 27002 dengan metode Certainty Factor" adalah
-                sebuah sistem pakar yang dirancang untuk mengevaluasi dan
+                &quot;Sistem pakar Risk Assessment Keamanan Sistem Informasi
+                berdasarkan ISO 27002 dengan metode Certainty Factor&quot;
+                adalah sebuah sistem pakar yang dirancang untuk mengevaluasi dan
                 menganalisis risiko keamanan pada sistem informasi menggunakan
                 standar ISO 27002.
               </p>
