@@ -107,7 +107,7 @@ export default function Pakar() {
       <Head>
         <title>Sistem Pakar | Dashboard</title>
       </Head>
-      <h1>Sistem Pakar ISO 270002 Dengan Metode Certainty Factor</h1>
+      <h1>Sistem Pakar ISO 27002 Dengan Metode Certainty Factor</h1>
       <Input
         clearable
         bordered
