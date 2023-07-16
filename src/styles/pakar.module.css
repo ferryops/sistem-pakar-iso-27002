@@ -93,6 +93,47 @@
   vertical-align: middle;
 }
 
+.error {
+  background-color: #300313;
+  color: #bc1b53;
+  height: auto;
+  width: auto;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+.warning {
+  background-color: #3a2503;
+  color: #b57919;
+  height: auto;
+  width: auto;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+.primary {
+  background-color: #10253e;
+  color: #0265d6;
+  height: auto;
+  width: auto;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+.success {
+  background-color: #042f14;
+  color: #38d079;
+  height: auto;
+  width: auto;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
 /* phone */
 @media (max-width: 500px) {
   .main {
