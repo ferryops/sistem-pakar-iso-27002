@@ -111,7 +111,7 @@ export default function Pakar() {
       <Input
         clearable
         bordered
-        labelPlaceholder="Nama Aspek "
+        labelPlaceholder="Nama Aspek: misal Data Karyawan"
         onChange={(e) => setAspek(e.target.value)}
         fullWidth
         value={aspek}
