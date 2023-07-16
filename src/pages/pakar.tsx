@@ -48,28 +48,39 @@ export default function Pakar() {
 
     let level: string;
     let colorLevel: string;
+    let rekomendasi: string;
     switch (total) {
       case 1:
       case 2:
         level = "High Risk";
         colorLevel = "error";
+        rekomendasi =
+          "Risiko sangat serius bagi keamanan informasi organisasi Anda. Jika risiko ini terwujud, dampaknya bisa sangat merugikan organisasi dan menyebabkan kerugian besar. Tindakan mitigasi yang kuat diperlukan untuk mengurangi risiko ini.";
         break;
       case 3:
         level = "Medium Risk";
         colorLevel = "warning";
+        rekomendasi =
+          "Risiko menunjukkan ancaman yang memiliki dampak moderat terhadap keamanan informasi organisasi Anda. Meskipun tidak seberat risiko tinggi, tetap perlu tindakan pencegahan dan pengendalian untuk mengurangi kemungkinan terjadinya risiko ini.";
         break;
       case 4:
       case 5:
         level = "Low Risk";
         colorLevel = "primary";
+        rekomendasi =
+          "Risiko memiliki dampak minimal atau terbatas terhadap keamanan informasi organisasi Anda. Risiko ini masih perlu diawasi dan diantisipasi, tetapi dapat dihadapi dengan kontrol yang memadai.";
         break;
       case 6:
         level = "Very Low Risk";
         colorLevel = "success";
+        rekomendasi =
+          "Risiko sangat rendah, hampir tidak memiliki dampak signifikan terhadap keamanan informasi organisasi Anda. Risiko ini umumnya dapat ditangani dengan kontrol sederhana dan penerimaan risiko.";
         break;
       default:
         level = "High Risk";
         colorLevel = "error";
+        rekomendasi =
+          "Risiko sangat serius bagi keamanan informasi organisasi Anda. Jika risiko ini terwujud, dampaknya bisa sangat merugikan organisasi dan menyebabkan kerugian besar. Tindakan mitigasi yang kuat diperlukan untuk mengurangi risiko ini.";
         break;
     }
 
@@ -80,8 +91,7 @@ export default function Pakar() {
         hasil: total.toString(),
         level: level,
         colorlevel: colorLevel,
-        rekomendasi:
-          "lorem ipsum dolor sit amet, consectetur adip   incididunt ut labore et        dolore magna aliqu Lorem ipsum dolor sit amet",
+        rekomendasi: rekomendasi,
       },
     ]);
     setAspek("");
