@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap");
 
+.inter {
+  font-family: inter;
+}
+
 .main {
   font-family: inter;
   display: flex;
@@ -84,13 +88,17 @@
   background-color: #e3e3e3;
 }
 
+.skor {
+  text-align: center;
+  vertical-align: middle;
+}
 
 /* phone */
 @media (max-width: 500px) {
   .main {
     width: 90%;
   }
-  .ul{
+  .ul {
     padding: 0;
   }
   .form {
@@ -106,7 +114,7 @@
   .main {
     width: 90%;
   }
-  .ul{
+  .ul {
     padding: 0;
   }
   .form {

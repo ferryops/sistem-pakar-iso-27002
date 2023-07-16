@@ -1,5 +1,5 @@
 import styles from "@/styles/pakar.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import {
   Table,
@@ -10,6 +10,7 @@ import {
   Checkbox,
   Text,
 } from "@nextui-org/react";
+import { MdOutlineDeleteOutline } from "react-icons/md";
 
 export default function Pakar() {
   const [modalError, setModalError] = useState(false);
@@ -27,6 +28,7 @@ export default function Pakar() {
     {
       nama: "",
       hasil: "",
+      level: "",
       rekomendasi: "",
     },
   ]);
@@ -38,11 +40,14 @@ export default function Pakar() {
     }
     let total = (risk1 + risk2 + risk3 + risk4) / 4;
 
+    let level = "high risk"
+
     setHasil((prevHasil) => [
       ...prevHasil,
       {
         nama: aspek,
         hasil: total.toString(),
+        level: level,
         rekomendasi:
           "lorem ipsum dolor sit amet, consectetur adip   incididunt ut labore et        dolore magna aliqu Lorem ipsum dolor sit amet",
       },
@@ -84,10 +89,8 @@ export default function Pakar() {
             </div>
 
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
           <div className={styles.ul}>
@@ -98,10 +101,8 @@ export default function Pakar() {
               </span>
             </div>
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
           <div className={styles.ul}>
@@ -112,10 +113,8 @@ export default function Pakar() {
               </span>
             </div>
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
         </div>
@@ -128,10 +127,8 @@ export default function Pakar() {
               <span>Lorem</span>
             </div>
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
           <div className={styles.ul}>
@@ -140,10 +137,8 @@ export default function Pakar() {
               <span>Lorem</span>
             </div>
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
           <div className={styles.ul}>
@@ -152,10 +147,8 @@ export default function Pakar() {
               <span>Lorem</span>
             </div>
             <select onChange={(e) => setRisk1(parseInt(e.target.value))}>
-              <option value="3">High Risk</option>
-              <option value="2">Medium Risk</option>
-              <option value="1">Low Risk</option>
-              <option value="0">Very Low Risk</option>
+              <option value="1">Ya</option>
+              <option value="0">Tidak</option>
             </select>
           </div>
         </div>
@@ -173,6 +166,7 @@ export default function Pakar() {
             <tr>
               <th>ASPEK</th>
               <th>SKOR</th>
+              <th>LEVEL</th>
               <th>REKOMENDASI</th>
               <th>AKSI</th>
             </tr>
@@ -181,11 +175,12 @@ export default function Pakar() {
             {hasil.map((nilai, index) => (
               <tr key={index}>
                 <td>{nilai.nama}</td>
-                <td>{nilai.hasil}</td>
+                <td className={styles.skor}>{nilai.hasil}</td>
+                <td className={styles.skor}>{nilai.level}</td>
                 <td>{nilai.rekomendasi}</td>
                 <td>
                   <Button color="error" auto onClick={() => hapus(index)}>
-                    hapus
+                    <MdOutlineDeleteOutline />
                   </Button>
                 </td>
               </tr>
@@ -201,6 +196,7 @@ export default function Pakar() {
         aria-labelledby="modal-title"
         open={modalError}
         onClose={closeHandler}
+        className={styles.inter}
       >
         <Modal.Header>
           <Text id="modal-title" size={18} color="error">
@@ -208,14 +204,11 @@ export default function Pakar() {
           </Text>
         </Modal.Header>
         <Modal.Body>
-          <Text>Nama aspek tidak boleh kosong</Text>
+          <Text>Nama aspek tidak boleh kosong!</Text>
         </Modal.Body>
         <Modal.Footer>
           <Button auto flat color="error" onPress={closeHandler}>
-            Close
-          </Button>
-          <Button auto onPress={closeHandler}>
-            Sign in
+            Tutup
           </Button>
         </Modal.Footer>
       </Modal>
