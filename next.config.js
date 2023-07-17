@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  // output: "export",
+  images: {
+    domains: ["lh3.googleusercontent.com"],
+  },
 };
 
 module.exports = nextConfig;

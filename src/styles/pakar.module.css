@@ -133,6 +133,13 @@
   font-weight: 500;
   padding: 6px 10px;
 }
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inter;
+}
+
 
 /* phone */
 @media (max-width: 500px) {
