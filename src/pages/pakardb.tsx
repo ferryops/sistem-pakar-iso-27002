@@ -1,7 +1,6 @@
 import styles from "@/styles/pakar.module.css";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import {
   Table,
   Button,
@@ -126,17 +125,23 @@ export default function Pakardb() {
       const hasilArray = doc.data()?.hasilMap.hasil ?? [];
       const namaArray = doc.data()?.hasilMap.nama ?? [];
       const levelArray = doc.data()?.hasilMap.level ?? [];
+      const colorLevel = doc.data()?.hasilMap.colorLevel ?? [];
+      const rekomendasi = doc.data()?.hasilMap.rekomendasi ?? [];
 
       // Hapus elemen pada indeks yang diberikan dari ketiga array
       hasilArray.splice(index, 1);
       namaArray.splice(index, 1);
       levelArray.splice(index, 1);
+      colorLevel.splice(index, 1);
+      rekomendasi.splice(index, 1);
 
       // Lakukan update pada ketiga array di Firestore
       await userRef.update({
         "hasilMap.hasil": hasilArray,
         "hasilMap.nama": namaArray,
         "hasilMap.level": levelArray,
+        "hasilMap.colorLevel": colorLevel,
+        "hasilMap.rekomendasi": rekomendasi,
       });
 
       // Perbarui state userData dengan data yang telah di-update
@@ -146,6 +151,8 @@ export default function Pakardb() {
           hasil: hasilArray,
           nama: namaArray,
           level: levelArray,
+          colorLevel: colorLevel,
+          rekomendasi: rekomendasi,
         },
       });
     } catch (error) {
@@ -212,20 +219,25 @@ export default function Pakardb() {
     const userRef = db.collection("user").doc(emailUser);
 
     try {
-      // Mengecek apakah dokumen dengan email pengguna sudah ada di Firestore
       const doc = await userRef.get();
       if (doc.exists) {
-        // Jika dokumen sudah ada, lakukan update pada array di Firestore dengan menggunakan arrayUnion
+        const docData = doc.data();
+        const hasilMap = docData?.hasilMap || {};
+
+        // Menggabungkan array lama dengan nilai baru dan tetap menjaga duplikat
+        const namaArray = [...hasilMap.nama, aspek];
+        const hasilArray = [...hasilMap.hasil, total.toString()];
+        const levelArray = [...hasilMap.level, level];
+        const colorLevelArray = [...hasilMap.colorLevel, colorLevel];
+        const rekomendasiArray = [...hasilMap.rekomendasi, rekomendasi];
+
+        // Lakukan update pada dokumen dengan hasilMap yang telah diperbarui
         await userRef.update({
-          "hasilMap.nama": firebase.firestore.FieldValue.arrayUnion(aspek),
-          "hasilMap.hasil": firebase.firestore.FieldValue.arrayUnion(
-            total.toString()
-          ),
-          "hasilMap.level": firebase.firestore.FieldValue.arrayUnion(level),
-          "hasilMap.colorLevel":
-            firebase.firestore.FieldValue.arrayUnion(colorLevel),
-          "hasilMap.rekomendasi":
-            firebase.firestore.FieldValue.arrayUnion(rekomendasi),
+          "hasilMap.nama": namaArray,
+          "hasilMap.hasil": hasilArray,
+          "hasilMap.level": levelArray,
+          "hasilMap.colorLevel": colorLevelArray,
+          "hasilMap.rekomendasi": rekomendasiArray,
         });
       } else {
         // Jika dokumen belum ada, buat dokumen baru dengan data yang diinginkan
@@ -240,14 +252,8 @@ export default function Pakardb() {
           email: emailUser,
         });
       }
-
-      // Ambil data terbaru dari Firestore setelah update
       const updatedDoc = await userRef.get();
-
-      // Perbarui state userData dengan data terbaru dari Firestore
       setUserData(updatedDoc.data());
-
-      // Reset state newData menjadi string kosong setelah berhasil menambahkan value
     } catch (error) {
       console.error("Error adding element to Firestore:", error);
     }
