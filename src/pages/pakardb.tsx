@@ -1,18 +1,9 @@
 import styles from "@/styles/pakar.module.css";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import {
-  Table,
-  Button,
-  Input,
-  Modal,
-  Row,
-  Checkbox,
-  Text,
-  Avatar,
-} from "@nextui-org/react";
+import { Button, Input, Modal, Text, Avatar } from "@nextui-org/react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, firebase } from "@/utils/firebase";
 
 export default function Pakardb() {
@@ -39,24 +30,14 @@ export default function Pakardb() {
   const loginGoogle = async () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        // ...
         console.log(user);
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
+        console.log(error);
       });
   };
 
@@ -64,9 +45,9 @@ export default function Pakardb() {
   const logout = () => {
     auth.signOut();
     window.localStorage.removeItem("emailForSignIn");
-    // router.push("/login");
   };
 
+  // close modal
   const closeHandler = () => {
     setModalError(false);
     console.log("closed");
@@ -110,53 +91,57 @@ export default function Pakardb() {
     }
   };
 
+  // Panggil fungsi dataUser saat emailUser berubah
   useEffect(() => {
-    // Panggil fungsi dataUser saat emailUser berubah
     dataUser();
   }, [emailUser]);
 
   //   handle delete data
   const handleDelete = async (index: number) => {
-    const userRef = db.collection("user").doc(userData.id);
+    const result = window.confirm("Yakin menghapus data?");
+    if (result) {
+      const userRef = db.collection("user").doc(userData.id);
+      try {
+        // Ambil data dari Firestore
+        const doc = await userRef.get();
+        const hasilArray = doc.data()?.hasilMap.hasil ?? [];
+        const namaArray = doc.data()?.hasilMap.nama ?? [];
+        const levelArray = doc.data()?.hasilMap.level ?? [];
+        const colorLevel = doc.data()?.hasilMap.colorLevel ?? [];
+        const rekomendasi = doc.data()?.hasilMap.rekomendasi ?? [];
 
-    try {
-      // Ambil data dari Firestore
-      const doc = await userRef.get();
-      const hasilArray = doc.data()?.hasilMap.hasil ?? [];
-      const namaArray = doc.data()?.hasilMap.nama ?? [];
-      const levelArray = doc.data()?.hasilMap.level ?? [];
-      const colorLevel = doc.data()?.hasilMap.colorLevel ?? [];
-      const rekomendasi = doc.data()?.hasilMap.rekomendasi ?? [];
+        // Hapus elemen pada indeks yang diberikan dari ketiga array
+        hasilArray.splice(index, 1);
+        namaArray.splice(index, 1);
+        levelArray.splice(index, 1);
+        colorLevel.splice(index, 1);
+        rekomendasi.splice(index, 1);
 
-      // Hapus elemen pada indeks yang diberikan dari ketiga array
-      hasilArray.splice(index, 1);
-      namaArray.splice(index, 1);
-      levelArray.splice(index, 1);
-      colorLevel.splice(index, 1);
-      rekomendasi.splice(index, 1);
+        // Lakukan update pada ketiga array di Firestore
+        await userRef.update({
+          "hasilMap.hasil": hasilArray,
+          "hasilMap.nama": namaArray,
+          "hasilMap.level": levelArray,
+          "hasilMap.colorLevel": colorLevel,
+          "hasilMap.rekomendasi": rekomendasi,
+        });
 
-      // Lakukan update pada ketiga array di Firestore
-      await userRef.update({
-        "hasilMap.hasil": hasilArray,
-        "hasilMap.nama": namaArray,
-        "hasilMap.level": levelArray,
-        "hasilMap.colorLevel": colorLevel,
-        "hasilMap.rekomendasi": rekomendasi,
-      });
-
-      // Perbarui state userData dengan data yang telah di-update
-      setUserData({
-        ...userData,
-        hasilMap: {
-          hasil: hasilArray,
-          nama: namaArray,
-          level: levelArray,
-          colorLevel: colorLevel,
-          rekomendasi: rekomendasi,
-        },
-      });
-    } catch (error) {
-      console.error("Error deleting element from Firestore:", error);
+        // Perbarui state userData dengan data yang telah di-update
+        setUserData({
+          ...userData,
+          hasilMap: {
+            hasil: hasilArray,
+            nama: namaArray,
+            level: levelArray,
+            colorLevel: colorLevel,
+            rekomendasi: rekomendasi,
+          },
+        });
+      } catch (error) {
+        console.error("Error deleting element from Firestore:", error);
+      }
+    } else {
+      return;
     }
   };
 
@@ -254,6 +239,8 @@ export default function Pakardb() {
       }
       const updatedDoc = await userRef.get();
       setUserData(updatedDoc.data());
+      alert("hasil tergenerate");
+      dataUser();
     } catch (error) {
       console.error("Error adding element to Firestore:", error);
     }
@@ -433,7 +420,7 @@ export default function Pakardb() {
                     <Button
                       color="error"
                       auto
-                      onClick={() => handleDelete(index)}
+                      onPress={() => handleDelete(index)}
                     >
                       <MdOutlineDeleteOutline />
                     </Button>
@@ -444,9 +431,7 @@ export default function Pakardb() {
           </table>
         </div>
 
-        <button onClick={color}>color</button>
-
-        {/* Modal */}
+        {/* Modal input null */}
         <Modal
           closeButton
           blur
