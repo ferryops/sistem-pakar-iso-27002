@@ -16,6 +16,8 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, firebase } from "@/utils/firebase";
 import { useRouter } from "next/router";
+import Select from "@/components/OptionAssessment";
+import OptionAssessment from "@/components/OptionAssessment";
 
 export default function Pakar() {
   const [modalError, setModalError] = useState(false);
@@ -75,12 +77,22 @@ export default function Pakar() {
   };
 
   const [aspek, setAspek] = useState("");
-  const [risk1, setRisk1] = useState<number>(0);
-  const [risk2, setRisk2] = useState<number>(0);
-  const [risk3, setRisk3] = useState<number>(0);
-  const [risk4, setRisk4] = useState<number>(0);
-  const [risk5, setRisk5] = useState<number>(0);
-  const [risk6, setRisk6] = useState<number>(0);
+  const [risk11, setRisk11] = useState<number>(0);
+  const [risk12, setRisk12] = useState<number>(0);
+  const [risk13, setRisk13] = useState<number>(0);
+  const [risk14, setRisk14] = useState<number>(0);
+  const [risk15, setRisk15] = useState<number>(0);
+  const [risk16, setRisk16] = useState<number>(0);
+  const [risk17, setRisk17] = useState<number>(0);
+
+  const [risk21, setRisk21] = useState<number>(0);
+  const [risk22, setRisk22] = useState<number>(0);
+  const [risk23, setRisk23] = useState<number>(0);
+  const [risk24, setRisk24] = useState<number>(0);
+  const [risk25, setRisk25] = useState<number>(0);
+  const [risk26, setRisk26] = useState<number>(0);
+  const [risk27, setRisk27] = useState<number>(0);
+
   const [hasil, setHasil] = useState([
     {
       nama: "",
@@ -98,7 +110,8 @@ export default function Pakar() {
       return;
     }
     // kalkulasi nilai risk
-    let totalRisk = risk1 + risk2 + risk3 + risk4 + risk5 + risk6;
+    let totalRisk =
+      risk11 + risk12 + risk13 + risk14 + risk15 + risk16 + risk17;
     let total = totalRisk;
 
     let level: string;
@@ -110,7 +123,7 @@ export default function Pakar() {
         level = "High Risk";
         colorLevel = "error";
         rekomendasi =
-          "Risiko sangat serius bagi keamanan informasi organisasi Anda. Jika risiko ini terwujud, dampaknya bisa sangat merugikan organisasi dan menyebabkan kerugian besar. Tindakan mitigasi yang kuat diperlukan untuk mengurangi risiko ini.";
+          "Risiko sangat serius bagi keamanan informasi organisasi Anda. Jika risiko ini terwujud, dampaknya bisa sangat merugikan organisasi dan menyebabkan kerugian besar. Tindakan mitigasi yang kuat diperlukan untuk mengurangi risiko ini\n halo bang ";
         break;
       case 3:
         level = "Medium Risk";
@@ -150,12 +163,23 @@ export default function Pakar() {
       },
     ]);
     setAspek("");
-    setRisk1(1);
   };
 
   const hapus = (index: any) => {
     setHasil(hasil.filter((element, i) => i !== index));
   };
+
+  const assesment1 = [
+    "null",
+    "Apakah organisasi telah mengembangkan kebijakan keamanan informasi yang sesuai dengan kebutuhan dan persyaratan yang dijelaskan dalam ISO 27002?",
+    "Bagaimana kebijakan keamanan informasi organisasi dikembangkan agar sesuai dengan karakteristik, risiko, dan kebutuhan unik organisasi?",
+    "Apakah kebijakan keamanan informasi yang telah dikembangkan oleh organisasi terkait dan sejalan dengan kebijakan lainnya yang ada?",
+    "Sejauh mana kebijakan keamanan informasi telah diterapkan secara konsisten di seluruh organisasi?",
+    "Bagaimana organisasi memantau dan mengukur kepatuhan terhadap kebijakan keamanan informasi yang telah dikembangkan?",
+    "Apakah dilakukan audit internal terhadap implementasi, kepatuhan, dan efektivitas kebijakan keamanan informasi?",
+    "Bagaimana tinjauan manajemen dilakukan untuk memastikan kebijakan keamanan informasi tetap relevan dan sesuai dengan perubahan lingkungan bisnis dan kebutuhan organisasi?,",
+  ];
+  const assesment2 = ["null", "asyoss"];
 
   return (
     <>
@@ -193,53 +217,68 @@ export default function Pakar() {
         <div className={styles.form}>
           {/* Kontrol keamanan 1 */}
           <div className={styles.parameter}>
-            <span>Kebijakan keamanan informasi</span>
+            <b>Kebijakan keamanan informasi</b>
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>
-                  Kebijakan keamanan informasi telah dikembangkan dan
-                  dokumentasikan dengan jelas
-                </span>
+                <span>{assesment1[1]}</span>
               </div>
-
-              <select
-                onChange={(e) => setRisk1(parseInt(e.target.value))}
-                value={risk1}
-              >
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk11(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>
-                  Kebijakan mencakup komitmen manajemen atas keamanan informasi
-                </span>
+                <span>{assesment1[2]}</span>
               </div>
-              <select onChange={(e) => setRisk2(parseInt(e.target.value))}>
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk12(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>
-                  Kebijakan memperhitungkan tujuan organisasi dan kebutuhan
-                  bisnis
-                </span>
+                <span>{assesment1[3]}</span>
               </div>
-              <select onChange={(e) => setRisk3(parseInt(e.target.value))}>
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk13(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment1[4]}</span>
+              </div>
+              <select onChange={(e) => setRisk14(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment1[5]}</span>
+              </div>
+              <select onChange={(e) => setRisk15(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment1[6]}</span>
+              </div>
+              <select onChange={(e) => setRisk16(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment1[7]}</span>
+              </div>
+              <select onChange={(e) => setRisk17(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
           </div>
@@ -249,37 +288,55 @@ export default function Pakar() {
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>Lorem</span>
+                <span>{assesment2[1]}</span>
               </div>
-              <select onChange={(e) => setRisk4(parseInt(e.target.value))}>
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk21(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>Lorem</span>
+                <span>{assesment2[2]}</span>
               </div>
-              <select onChange={(e) => setRisk5(parseInt(e.target.value))}>
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk22(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
             <div className={styles.ul}>
               <div className={styles.ulItem}>
                 <li />
-                <span>Lorem</span>
+                <span>{assesment2[3]}</span>
               </div>
-              <select onChange={(e) => setRisk6(parseInt(e.target.value))}>
-                <option value="0">Tidak Dilakukan</option>
-                <option value="1">Dalam Perencanaan</option>
-                <option value="2">Diterapkan Sebagian</option>
-                <option value="3">Diterapkan Menyeluruh</option>
+              <select onChange={(e) => setRisk23(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment2[4]}</span>
+              </div>
+              <select onChange={(e) => setRisk24(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment2[5]}</span>
+              </div>
+              <select onChange={(e) => setRisk25(parseInt(e.target.value))}>
+                <OptionAssessment />
+              </select>
+            </div>
+            <div className={styles.ul}>
+              <div className={styles.ulItem}>
+                <li />
+                <span>{assesment2[6]}</span>
+              </div>
+              <select onChange={(e) => setRisk26(parseInt(e.target.value))}>
+                <OptionAssessment />
               </select>
             </div>
           </div>
@@ -312,7 +369,9 @@ export default function Pakar() {
                       {nilai.level}
                     </div>
                   </td>
-                  <td>{nilai.rekomendasi}</td>
+                  <td style={{ whiteSpace: "pre-line" }}>
+                    <span>{nilai.rekomendasi}</span>
+                  </td>
                   <td>
                     <Button color="error" auto onClick={() => hapus(index)}>
                       <MdOutlineDeleteOutline />

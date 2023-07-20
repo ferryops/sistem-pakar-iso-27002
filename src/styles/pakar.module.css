@@ -140,6 +140,25 @@
   font-family: inter;
 }
 
+.red {
+  background-color: red;
+  color: white;
+}
+.yellow {
+  background-color: yellow;
+  color: black;
+}
+.green {
+  background-color: greenyellow;
+  color: black;
+}
+.blue {
+  background-color: blue;
+  color: white;
+}
+.break {
+  word-break: break-all;
+}
 
 /* phone */
 @media (max-width: 500px) {
