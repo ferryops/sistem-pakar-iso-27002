@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { Button, Input, Modal, Text, Avatar } from "@nextui-org/react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, firebase } from "@/utils/firebase";
 import OptionAssessment from "@/components/OptionAssessment";
 
-export default function Pakardb() {
+export default function Pakar() {
   const [modalError, setModalError] = useState(false);
   const [user, setUser] = useState<any>();
   const provider = new GoogleAuthProvider();
@@ -18,7 +18,6 @@ export default function Pakardb() {
       const userLogin = auth.currentUser;
       if (userLogin) {
         setUser(user);
-        setEmailUser(userLogin.email);
         console.log(user);
       } else {
         // User is signed out
@@ -31,14 +30,24 @@ export default function Pakardb() {
   const loginGoogle = async () => {
     signInWithPopup(auth, provider)
       .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        // ...
         console.log(user);
       })
       .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
-        console.log(error);
       });
   };
 
@@ -46,106 +55,139 @@ export default function Pakardb() {
   const logout = () => {
     auth.signOut();
     window.localStorage.removeItem("emailForSignIn");
+    // router.push("/login");
   };
 
-  // close modal
   const closeHandler = () => {
     setModalError(false);
     console.log("closed");
   };
 
-  //   initial DB
-  const db = firebase.firestore();
-  const [emailUser, setEmailUser] = useState<string | null>();
-  const initialUserData = {
-    hasilMap: {
-      nama: [],
-      hasil: [],
-      level: [],
-      colorLevel: [],
-      rekomendasi: [],
+  const [aspek, setAspek] = useState("");
+
+  const [risk11, setRisk11] = useState<number>(0);
+  const [risk12, setRisk12] = useState<number>(0);
+  const [risk13, setRisk13] = useState<number>(0);
+  const [risk14, setRisk14] = useState<number>(0);
+  const [risk15, setRisk15] = useState<number>(0);
+  const [risk16, setRisk16] = useState<number>(0);
+  const [risk17, setRisk17] = useState<number>(0);
+
+  const [risk21, setRisk21] = useState<number>(0);
+  const [risk22, setRisk22] = useState<number>(0);
+  const [risk23, setRisk23] = useState<number>(0);
+  const [risk24, setRisk24] = useState<number>(0);
+  const [risk25, setRisk25] = useState<number>(0);
+  const [risk26, setRisk26] = useState<number>(0);
+  const [risk27, setRisk27] = useState<number>(0);
+
+  const [risk31, setRisk31] = useState<number>(0);
+  const [risk32, setRisk32] = useState<number>(0);
+  const [risk33, setRisk33] = useState<number>(0);
+  const [risk34, setRisk34] = useState<number>(0);
+  const [risk35, setRisk35] = useState<number>(0);
+  const [risk36, setRisk36] = useState<number>(0);
+  const [risk37, setRisk37] = useState<number>(0);
+
+  const [risk41, setRisk41] = useState<number>(0);
+  const [risk42, setRisk42] = useState<number>(0);
+  const [risk43, setRisk43] = useState<number>(0);
+  const [risk44, setRisk44] = useState<number>(0);
+  const [risk45, setRisk45] = useState<number>(0);
+  const [risk46, setRisk46] = useState<number>(0);
+  const [risk47, setRisk47] = useState<number>(0);
+
+  const [risk51, setRisk51] = useState<number>(0);
+  const [risk52, setRisk52] = useState<number>(0);
+  const [risk53, setRisk53] = useState<number>(0);
+  const [risk54, setRisk54] = useState<number>(0);
+  const [risk55, setRisk55] = useState<number>(0);
+  const [risk56, setRisk56] = useState<number>(0);
+  const [risk57, setRisk57] = useState<number>(0);
+
+  const [risk61, setRisk61] = useState<number>(0);
+  const [risk62, setRisk62] = useState<number>(0);
+  const [risk63, setRisk63] = useState<number>(0);
+  const [risk64, setRisk64] = useState<number>(0);
+  const [risk65, setRisk65] = useState<number>(0);
+  const [risk66, setRisk66] = useState<number>(0);
+  const [risk67, setRisk67] = useState<number>(0);
+
+  const [risk71, setRisk71] = useState<number>(0);
+  const [risk72, setRisk72] = useState<number>(0);
+  const [risk73, setRisk73] = useState<number>(0);
+  const [risk74, setRisk74] = useState<number>(0);
+  const [risk75, setRisk75] = useState<number>(0);
+  const [risk76, setRisk76] = useState<number>(0);
+  const [risk77, setRisk77] = useState<number>(0);
+
+  const [risk81, setRisk81] = useState<number>(0);
+  const [risk82, setRisk82] = useState<number>(0);
+  const [risk83, setRisk83] = useState<number>(0);
+  const [risk84, setRisk84] = useState<number>(0);
+  const [risk85, setRisk85] = useState<number>(0);
+  const [risk86, setRisk86] = useState<number>(0);
+  const [risk87, setRisk87] = useState<number>(0);
+
+  const [risk91, setRisk91] = useState<number>(0);
+  const [risk92, setRisk92] = useState<number>(0);
+  const [risk93, setRisk93] = useState<number>(0);
+  const [risk94, setRisk94] = useState<number>(0);
+  const [risk95, setRisk95] = useState<number>(0);
+  const [risk96, setRisk96] = useState<number>(0);
+  const [risk97, setRisk97] = useState<number>(0);
+
+  const [risk101, setRisk101] = useState<number>(0);
+  const [risk102, setRisk102] = useState<number>(0);
+  const [risk103, setRisk103] = useState<number>(0);
+  const [risk104, setRisk104] = useState<number>(0);
+  const [risk105, setRisk105] = useState<number>(0);
+  const [risk106, setRisk106] = useState<number>(0);
+  const [risk107, setRisk107] = useState<number>(0);
+
+  const [risk111, setRisk111] = useState<number>(0);
+  const [risk112, setRisk112] = useState<number>(0);
+  const [risk113, setRisk113] = useState<number>(0);
+  const [risk114, setRisk114] = useState<number>(0);
+  const [risk115, setRisk115] = useState<number>(0);
+  const [risk116, setRisk116] = useState<number>(0);
+  const [risk117, setRisk117] = useState<number>(0);
+
+  const [risk121, setRisk121] = useState<number>(0);
+  const [risk122, setRisk122] = useState<number>(0);
+  const [risk123, setRisk123] = useState<number>(0);
+  const [risk124, setRisk124] = useState<number>(0);
+  const [risk125, setRisk125] = useState<number>(0);
+  const [risk126, setRisk126] = useState<number>(0);
+  const [risk127, setRisk127] = useState<number>(0);
+
+  const [risk131, setRisk131] = useState<number>(0);
+  const [risk132, setRisk132] = useState<number>(0);
+  const [risk133, setRisk133] = useState<number>(0);
+  const [risk134, setRisk134] = useState<number>(0);
+  const [risk135, setRisk135] = useState<number>(0);
+  const [risk136, setRisk136] = useState<number>(0);
+  const [risk137, setRisk137] = useState<number>(0);
+
+  const [risk141, setRisk141] = useState<number>(0);
+  const [risk142, setRisk142] = useState<number>(0);
+  const [risk143, setRisk143] = useState<number>(0);
+  const [risk144, setRisk144] = useState<number>(0);
+  const [risk145, setRisk145] = useState<number>(0);
+  const [risk146, setRisk146] = useState<number>(0);
+  const [risk147, setRisk147] = useState<number>(0);
+
+  const [hasil, setHasil] = useState([
+    {
+      nama: "",
+      hasil: "",
+      level: "",
+      colorlevel: "",
+      rekomendasi: "",
     },
-    email: "",
-  };
-  const [userData, setUserData] = useState<any>(initialUserData);
+  ]);
 
-  //   get data firebase
-  const dataUser = async () => {
-    try {
-      const userCollectionRef = db.collection("user");
-      const snapshot = await userCollectionRef.where("email", "==", emailUser).get();
-
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-
-      if (data.length > 0) {
-        setUserData(data[0]);
-      } else {
-        setUserData(initialUserData);
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  };
-
-  // Panggil fungsi dataUser saat emailUser berubah
-  useEffect(() => {
-    dataUser();
-  }, [emailUser]);
-
-  //   handle delete data
-  const handleDelete = async (index: number) => {
-    const result = window.confirm("Yakin menghapus data?");
-    if (result) {
-      const userRef = db.collection("user").doc(userData.id);
-      try {
-        // Ambil data dari Firestore
-        const doc = await userRef.get();
-        const hasilArray = doc.data()?.hasilMap.hasil ?? [];
-        const namaArray = doc.data()?.hasilMap.nama ?? [];
-        const levelArray = doc.data()?.hasilMap.level ?? [];
-        const colorLevel = doc.data()?.hasilMap.colorLevel ?? [];
-        const rekomendasi = doc.data()?.hasilMap.rekomendasi ?? [];
-
-        // Hapus elemen pada indeks yang diberikan dari ketiga array
-        hasilArray.splice(index, 1);
-        namaArray.splice(index, 1);
-        levelArray.splice(index, 1);
-        colorLevel.splice(index, 1);
-        rekomendasi.splice(index, 1);
-
-        // Lakukan update pada ketiga array di Firestore
-        await userRef.update({
-          "hasilMap.hasil": hasilArray,
-          "hasilMap.nama": namaArray,
-          "hasilMap.level": levelArray,
-          "hasilMap.colorLevel": colorLevel,
-          "hasilMap.rekomendasi": rekomendasi,
-        });
-
-        // Perbarui state userData dengan data yang telah di-update
-        setUserData({
-          ...userData,
-          hasilMap: {
-            hasil: hasilArray,
-            nama: namaArray,
-            level: levelArray,
-            colorLevel: colorLevel,
-            rekomendasi: rekomendasi,
-          },
-        });
-      } catch (error) {
-        console.error("Error deleting element from Firestore:", error);
-      }
-    } else {
-      return;
-    }
-  };
-
-  //   handle Add
-  const handleAdd = async () => {
+  const kirim = () => {
     // cek input user kosong
     if (aspek === "") {
       setModalError(true);
@@ -614,171 +656,22 @@ export default function Pakardb() {
         break;
     }
 
+    setHasil((prevHasil) => [
+      ...prevHasil,
+      {
+        nama: aspek,
+        hasil: total.toString(),
+        level: level,
+        colorlevel: colorLevel,
+        rekomendasi: rekomendasi,
+      },
+    ]);
     setAspek("");
-
-    if (!emailUser) {
-      console.error("Email is empty");
-      return;
-    }
-
-    const userRef = db.collection("user").doc(emailUser);
-
-    try {
-      const doc = await userRef.get();
-      if (doc.exists) {
-        const docData = doc.data();
-        const hasilMap = docData?.hasilMap || {};
-
-        // Menggabungkan array lama dengan nilai baru dan tetap menjaga duplikat
-        const namaArray = [...hasilMap.nama, aspek];
-        const hasilArray = [...hasilMap.hasil, total.toString()];
-        const levelArray = [...hasilMap.level, level];
-        const colorLevelArray = [...hasilMap.colorLevel, colorLevel];
-        const rekomendasiArray = [...hasilMap.rekomendasi, rekomendasi];
-
-        // Lakukan update pada dokumen dengan hasilMap yang telah diperbarui
-        await userRef.update({
-          "hasilMap.nama": namaArray,
-          "hasilMap.hasil": hasilArray,
-          "hasilMap.level": levelArray,
-          "hasilMap.colorLevel": colorLevelArray,
-          "hasilMap.rekomendasi": rekomendasiArray,
-        });
-      } else {
-        // Jika dokumen belum ada, buat dokumen baru dengan data yang diinginkan
-        await userRef.set({
-          hasilMap: {
-            nama: [aspek],
-            hasil: [total.toString()],
-            level: [level],
-            colorLevel: [colorLevel],
-            rekomendasi: [rekomendasi],
-          },
-          email: emailUser,
-        });
-      }
-      const updatedDoc = await userRef.get();
-      setUserData(updatedDoc.data());
-      alert("Assessment Berhasil Dianalisis");
-      dataUser();
-    } catch (error) {
-      console.error("Error adding element to Firestore:", error);
-    }
   };
 
-  const [aspek, setAspek] = useState("");
-
-  const [risk11, setRisk11] = useState<number>(0);
-  const [risk12, setRisk12] = useState<number>(0);
-  const [risk13, setRisk13] = useState<number>(0);
-  const [risk14, setRisk14] = useState<number>(0);
-  const [risk15, setRisk15] = useState<number>(0);
-  const [risk16, setRisk16] = useState<number>(0);
-  const [risk17, setRisk17] = useState<number>(0);
-
-  const [risk21, setRisk21] = useState<number>(0);
-  const [risk22, setRisk22] = useState<number>(0);
-  const [risk23, setRisk23] = useState<number>(0);
-  const [risk24, setRisk24] = useState<number>(0);
-  const [risk25, setRisk25] = useState<number>(0);
-  const [risk26, setRisk26] = useState<number>(0);
-  const [risk27, setRisk27] = useState<number>(0);
-
-  const [risk31, setRisk31] = useState<number>(0);
-  const [risk32, setRisk32] = useState<number>(0);
-  const [risk33, setRisk33] = useState<number>(0);
-  const [risk34, setRisk34] = useState<number>(0);
-  const [risk35, setRisk35] = useState<number>(0);
-  const [risk36, setRisk36] = useState<number>(0);
-  const [risk37, setRisk37] = useState<number>(0);
-
-  const [risk41, setRisk41] = useState<number>(0);
-  const [risk42, setRisk42] = useState<number>(0);
-  const [risk43, setRisk43] = useState<number>(0);
-  const [risk44, setRisk44] = useState<number>(0);
-  const [risk45, setRisk45] = useState<number>(0);
-  const [risk46, setRisk46] = useState<number>(0);
-  const [risk47, setRisk47] = useState<number>(0);
-
-  const [risk51, setRisk51] = useState<number>(0);
-  const [risk52, setRisk52] = useState<number>(0);
-  const [risk53, setRisk53] = useState<number>(0);
-  const [risk54, setRisk54] = useState<number>(0);
-  const [risk55, setRisk55] = useState<number>(0);
-  const [risk56, setRisk56] = useState<number>(0);
-  const [risk57, setRisk57] = useState<number>(0);
-
-  const [risk61, setRisk61] = useState<number>(0);
-  const [risk62, setRisk62] = useState<number>(0);
-  const [risk63, setRisk63] = useState<number>(0);
-  const [risk64, setRisk64] = useState<number>(0);
-  const [risk65, setRisk65] = useState<number>(0);
-  const [risk66, setRisk66] = useState<number>(0);
-  const [risk67, setRisk67] = useState<number>(0);
-
-  const [risk71, setRisk71] = useState<number>(0);
-  const [risk72, setRisk72] = useState<number>(0);
-  const [risk73, setRisk73] = useState<number>(0);
-  const [risk74, setRisk74] = useState<number>(0);
-  const [risk75, setRisk75] = useState<number>(0);
-  const [risk76, setRisk76] = useState<number>(0);
-  const [risk77, setRisk77] = useState<number>(0);
-
-  const [risk81, setRisk81] = useState<number>(0);
-  const [risk82, setRisk82] = useState<number>(0);
-  const [risk83, setRisk83] = useState<number>(0);
-  const [risk84, setRisk84] = useState<number>(0);
-  const [risk85, setRisk85] = useState<number>(0);
-  const [risk86, setRisk86] = useState<number>(0);
-  const [risk87, setRisk87] = useState<number>(0);
-
-  const [risk91, setRisk91] = useState<number>(0);
-  const [risk92, setRisk92] = useState<number>(0);
-  const [risk93, setRisk93] = useState<number>(0);
-  const [risk94, setRisk94] = useState<number>(0);
-  const [risk95, setRisk95] = useState<number>(0);
-  const [risk96, setRisk96] = useState<number>(0);
-  const [risk97, setRisk97] = useState<number>(0);
-
-  const [risk101, setRisk101] = useState<number>(0);
-  const [risk102, setRisk102] = useState<number>(0);
-  const [risk103, setRisk103] = useState<number>(0);
-  const [risk104, setRisk104] = useState<number>(0);
-  const [risk105, setRisk105] = useState<number>(0);
-  const [risk106, setRisk106] = useState<number>(0);
-  const [risk107, setRisk107] = useState<number>(0);
-
-  const [risk111, setRisk111] = useState<number>(0);
-  const [risk112, setRisk112] = useState<number>(0);
-  const [risk113, setRisk113] = useState<number>(0);
-  const [risk114, setRisk114] = useState<number>(0);
-  const [risk115, setRisk115] = useState<number>(0);
-  const [risk116, setRisk116] = useState<number>(0);
-  const [risk117, setRisk117] = useState<number>(0);
-
-  const [risk121, setRisk121] = useState<number>(0);
-  const [risk122, setRisk122] = useState<number>(0);
-  const [risk123, setRisk123] = useState<number>(0);
-  const [risk124, setRisk124] = useState<number>(0);
-  const [risk125, setRisk125] = useState<number>(0);
-  const [risk126, setRisk126] = useState<number>(0);
-  const [risk127, setRisk127] = useState<number>(0);
-
-  const [risk131, setRisk131] = useState<number>(0);
-  const [risk132, setRisk132] = useState<number>(0);
-  const [risk133, setRisk133] = useState<number>(0);
-  const [risk134, setRisk134] = useState<number>(0);
-  const [risk135, setRisk135] = useState<number>(0);
-  const [risk136, setRisk136] = useState<number>(0);
-  const [risk137, setRisk137] = useState<number>(0);
-
-  const [risk141, setRisk141] = useState<number>(0);
-  const [risk142, setRisk142] = useState<number>(0);
-  const [risk143, setRisk143] = useState<number>(0);
-  const [risk144, setRisk144] = useState<number>(0);
-  const [risk145, setRisk145] = useState<number>(0);
-  const [risk146, setRisk146] = useState<number>(0);
-  const [risk147, setRisk147] = useState<number>(0);
+  const hapus = (index: any) => {
+    setHasil(hasil.filter((element, i) => i !== index));
+  };
 
   const assessment1 = [
     "null",
@@ -788,7 +681,7 @@ export default function Pakardb() {
     "Sejauh mana kebijakan keamanan informasi telah diterapkan secara konsisten di seluruh organisasi?",
     "Bagaimana organisasi memantau dan mengukur kepatuhan terhadap kebijakan keamanan informasi yang telah dikembangkan?",
     "Apakah dilakukan audit internal terhadap implementasi, kepatuhan, dan efektivitas kebijakan keamanan informasi?",
-    "Bagaimana tinjauan manajemen dilakukan untuk memastikan kebijakan keamanan informasi tetap relevan dan sesuai dengan perubahan lingkungan bisnis dan kebutuhan organisasi?",
+    "Bagaimana tinjauan manajemen dilakukan untuk memastikan kebijakan keamanan informasi tetap relevan dan sesuai dengan perubahan lingkungan bisnis dan kebutuhan organisasi?,",
   ];
   const assessment2 = [
     "null",
@@ -943,7 +836,7 @@ export default function Pakardb() {
         </div>
       ) : (
         <Button size="xs" onClick={loginGoogle}>
-          Login sebelum mulai assessment
+          Login untuk menyimpan progress
         </Button>
       )}
       <main className={styles.main}>
@@ -954,7 +847,7 @@ export default function Pakardb() {
         <Input
           clearable
           bordered
-          labelPlaceholder="Masukkan nama organisasi atau institusi"
+          labelPlaceholder="Nama Aspek: misal Data Karyawan"
           onChange={(e) => setAspek(e.target.value)}
           fullWidth
           value={aspek}
@@ -1903,7 +1796,7 @@ export default function Pakardb() {
         </div>
 
         {/* button action */}
-        <Button color="primary" auto onClick={handleAdd}>
+        <Button color="primary" auto onClick={kirim}>
           Analisa
         </Button>
 
@@ -1920,18 +1813,18 @@ export default function Pakardb() {
               </tr>
             </thead>
             <tbody>
-              {userData.hasilMap.hasil.map((hasil: string, index: number) => (
+              {hasil.map((nilai, index) => (
                 <tr key={index}>
-                  <td>{userData.hasilMap.nama[index]}</td>
-                  <td className={styles.skor}>{hasil}</td>
+                  <td>{nilai.nama}</td>
+                  <td className={styles.skor}>{nilai.hasil}</td>
                   <td className={styles.skor}>
-                    <div className={styles[userData.hasilMap.colorLevel[index]]}>{userData.hasilMap.level[index]}</div>
+                    <div className={`${styles[nilai.colorlevel]}`}>{nilai.level}</div>
+                  </td>
+                  <td style={{ whiteSpace: "pre-line" }}>
+                    <p>{nilai.rekomendasi}</p>
                   </td>
                   <td>
-                    <p style={{ whiteSpace: "pre-line" }}>{userData.hasilMap.rekomendasi[index]}</p>
-                  </td>
-                  <td>
-                    <Button color="error" auto onPress={() => handleDelete(index)}>
+                    <Button color="error" auto onClick={() => hapus(index)}>
                       <MdOutlineDeleteOutline />
                     </Button>
                   </td>
@@ -1941,7 +1834,7 @@ export default function Pakardb() {
           </table>
         </div>
 
-        {/* Modal input null */}
+        {/* Modal */}
         <Modal
           closeButton
           blur
