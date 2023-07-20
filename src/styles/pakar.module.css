@@ -11,7 +11,7 @@
   align-items: center;
   height: 100%;
   gap: 1rem;
-  width: 50%;
+  width: 95%;
   margin: auto;
 }
 .form {
@@ -35,21 +35,21 @@
 }
 .ul select {
   width: auto;
-  border-radius: 12px;
+  border-radius: 10px;
   height: 40px;
   display: flex;
   cursor: pointer;
-}
-.ul select option {
-  cursor: pointer;
-  border-radius: 20px;
 }
 
 .ul {
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
-  /* background-color: red; */
+  align-items: center;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  /* background-color: #0265d6; */
 }
 .ulItem {
   display: flex;
@@ -57,6 +57,7 @@
 
 .result {
   width: 100%;
+  margin-bottom: 3rem;
   /* background-color: rgba(0, 0, 0, 0.4); */
 }
 
@@ -140,22 +141,6 @@
   font-family: inter;
 }
 
-.red {
-  background-color: red;
-  color: white;
-}
-.yellow {
-  background-color: yellow;
-  color: black;
-}
-.green {
-  background-color: greenyellow;
-  color: black;
-}
-.blue {
-  background-color: blue;
-  color: white;
-}
 .break {
   word-break: break-all;
 }
@@ -163,7 +148,7 @@
 /* phone */
 @media (max-width: 500px) {
   .main {
-    width: 90%;
+    width: 100%;
   }
   .ul {
     padding: 0;
