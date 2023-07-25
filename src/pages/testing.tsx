@@ -1,11 +1,27 @@
 import styles from "@/styles/pakar.module.css";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import { Button, Input, Modal, Text, Avatar } from "@nextui-org/react";
+import { Button, Input, Modal, Text, Avatar, Table } from "@nextui-org/react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, firebase } from "@/utils/firebase";
 import OptionAssessment from "@/components/OptionAssessment";
+import {
+  assessment1,
+  assessment2,
+  assessment3,
+  assessment4,
+  assessment5,
+  assessment6,
+  assessment7,
+  assessment8,
+  assessment9,
+  assessment10,
+  assessment11,
+  assessment12,
+  assessment13,
+  assessment14,
+} from "@/components/Assessment";
 
 export default function Pakar() {
   const [modalError, setModalError] = useState(false);
@@ -72,6 +88,7 @@ export default function Pakar() {
   const [risk15, setRisk15] = useState<number>(0);
   const [risk16, setRisk16] = useState<number>(0);
   const [risk17, setRisk17] = useState<number>(0);
+  const riskSetters1 = [setRisk11, setRisk12, setRisk13, setRisk14, setRisk15, setRisk16, setRisk17];
 
   const [risk21, setRisk21] = useState<number>(0);
   const [risk22, setRisk22] = useState<number>(0);
@@ -80,6 +97,7 @@ export default function Pakar() {
   const [risk25, setRisk25] = useState<number>(0);
   const [risk26, setRisk26] = useState<number>(0);
   const [risk27, setRisk27] = useState<number>(0);
+  const riskSetters2 = [setRisk21, setRisk22, setRisk23, setRisk24, setRisk25, setRisk26, setRisk27];
 
   const [risk31, setRisk31] = useState<number>(0);
   const [risk32, setRisk32] = useState<number>(0);
@@ -88,6 +106,7 @@ export default function Pakar() {
   const [risk35, setRisk35] = useState<number>(0);
   const [risk36, setRisk36] = useState<number>(0);
   const [risk37, setRisk37] = useState<number>(0);
+  const riskSetters3 = [setRisk31, setRisk32, setRisk33, setRisk34, setRisk35, setRisk36, setRisk37];
 
   const [risk41, setRisk41] = useState<number>(0);
   const [risk42, setRisk42] = useState<number>(0);
@@ -96,6 +115,7 @@ export default function Pakar() {
   const [risk45, setRisk45] = useState<number>(0);
   const [risk46, setRisk46] = useState<number>(0);
   const [risk47, setRisk47] = useState<number>(0);
+  const riskSetters4 = [setRisk41, setRisk42, setRisk43, setRisk44, setRisk45, setRisk46, setRisk47];
 
   const [risk51, setRisk51] = useState<number>(0);
   const [risk52, setRisk52] = useState<number>(0);
@@ -104,6 +124,7 @@ export default function Pakar() {
   const [risk55, setRisk55] = useState<number>(0);
   const [risk56, setRisk56] = useState<number>(0);
   const [risk57, setRisk57] = useState<number>(0);
+  const riskSetters5 = [setRisk51, setRisk52, setRisk53, setRisk54, setRisk55, setRisk56, setRisk57];
 
   const [risk61, setRisk61] = useState<number>(0);
   const [risk62, setRisk62] = useState<number>(0);
@@ -112,6 +133,7 @@ export default function Pakar() {
   const [risk65, setRisk65] = useState<number>(0);
   const [risk66, setRisk66] = useState<number>(0);
   const [risk67, setRisk67] = useState<number>(0);
+  const riskSetters6 = [setRisk61, setRisk62, setRisk63, setRisk64, setRisk65, setRisk66, setRisk67];
 
   const [risk71, setRisk71] = useState<number>(0);
   const [risk72, setRisk72] = useState<number>(0);
@@ -120,6 +142,7 @@ export default function Pakar() {
   const [risk75, setRisk75] = useState<number>(0);
   const [risk76, setRisk76] = useState<number>(0);
   const [risk77, setRisk77] = useState<number>(0);
+  const riskSetters7 = [setRisk71, setRisk72, setRisk73, setRisk74, setRisk75, setRisk76, setRisk77];
 
   const [risk81, setRisk81] = useState<number>(0);
   const [risk82, setRisk82] = useState<number>(0);
@@ -128,6 +151,7 @@ export default function Pakar() {
   const [risk85, setRisk85] = useState<number>(0);
   const [risk86, setRisk86] = useState<number>(0);
   const [risk87, setRisk87] = useState<number>(0);
+  const riskSetters8 = [setRisk81, setRisk82, setRisk83, setRisk84, setRisk85, setRisk86, setRisk87];
 
   const [risk91, setRisk91] = useState<number>(0);
   const [risk92, setRisk92] = useState<number>(0);
@@ -136,6 +160,7 @@ export default function Pakar() {
   const [risk95, setRisk95] = useState<number>(0);
   const [risk96, setRisk96] = useState<number>(0);
   const [risk97, setRisk97] = useState<number>(0);
+  const riskSetters9 = [setRisk91, setRisk92, setRisk93, setRisk94, setRisk95, setRisk96, setRisk97];
 
   const [risk101, setRisk101] = useState<number>(0);
   const [risk102, setRisk102] = useState<number>(0);
@@ -144,6 +169,7 @@ export default function Pakar() {
   const [risk105, setRisk105] = useState<number>(0);
   const [risk106, setRisk106] = useState<number>(0);
   const [risk107, setRisk107] = useState<number>(0);
+  const riskSetters10 = [setRisk101, setRisk102, setRisk103, setRisk104, setRisk105, setRisk106, setRisk107];
 
   const [risk111, setRisk111] = useState<number>(0);
   const [risk112, setRisk112] = useState<number>(0);
@@ -152,6 +178,7 @@ export default function Pakar() {
   const [risk115, setRisk115] = useState<number>(0);
   const [risk116, setRisk116] = useState<number>(0);
   const [risk117, setRisk117] = useState<number>(0);
+  const riskSetters11 = [setRisk111, setRisk112, setRisk113, setRisk114, setRisk115, setRisk116, setRisk117];
 
   const [risk121, setRisk121] = useState<number>(0);
   const [risk122, setRisk122] = useState<number>(0);
@@ -160,6 +187,7 @@ export default function Pakar() {
   const [risk125, setRisk125] = useState<number>(0);
   const [risk126, setRisk126] = useState<number>(0);
   const [risk127, setRisk127] = useState<number>(0);
+  const riskSetters12 = [setRisk121, setRisk122, setRisk123, setRisk124, setRisk125, setRisk126, setRisk127];
 
   const [risk131, setRisk131] = useState<number>(0);
   const [risk132, setRisk132] = useState<number>(0);
@@ -168,6 +196,7 @@ export default function Pakar() {
   const [risk135, setRisk135] = useState<number>(0);
   const [risk136, setRisk136] = useState<number>(0);
   const [risk137, setRisk137] = useState<number>(0);
+  const riskSetters13 = [setRisk131, setRisk132, setRisk133, setRisk134, setRisk135, setRisk136, setRisk137];
 
   const [risk141, setRisk141] = useState<number>(0);
   const [risk142, setRisk142] = useState<number>(0);
@@ -176,6 +205,7 @@ export default function Pakar() {
   const [risk145, setRisk145] = useState<number>(0);
   const [risk146, setRisk146] = useState<number>(0);
   const [risk147, setRisk147] = useState<number>(0);
+  const riskSetters14 = [setRisk141, setRisk142, setRisk143, setRisk144, setRisk145, setRisk146, setRisk147];
 
   const [hasil, setHasil] = useState([
     {
@@ -604,7 +634,7 @@ export default function Pakar() {
       default:
         resultKontrol13 = "null";
         break;
-    } // kontro l4
+    } // kontrol l4
     switch (true) {
       case kontrol14 == 0:
         resultKontrol14 =
@@ -673,153 +703,645 @@ export default function Pakar() {
     setHasil(hasil.filter((element, i) => i !== index));
   };
 
-  const assessment1 = [
-    "null",
-    "Apakah organisasi telah mengembangkan kebijakan keamanan informasi yang sesuai dengan kebutuhan dan persyaratan yang dijelaskan dalam ISO 27002?",
-    "Bagaimana kebijakan keamanan informasi organisasi dikembangkan agar sesuai dengan karakteristik, risiko, dan kebutuhan unik organisasi?",
-    "Apakah kebijakan keamanan informasi yang telah dikembangkan oleh organisasi terkait dan sejalan dengan kebijakan lainnya yang ada?",
-    "Sejauh mana kebijakan keamanan informasi telah diterapkan secara konsisten di seluruh organisasi?",
-    "Bagaimana organisasi memantau dan mengukur kepatuhan terhadap kebijakan keamanan informasi yang telah dikembangkan?",
-    "Apakah dilakukan audit internal terhadap implementasi, kepatuhan, dan efektivitas kebijakan keamanan informasi?",
-    "Bagaimana tinjauan manajemen dilakukan untuk memastikan kebijakan keamanan informasi tetap relevan dan sesuai dengan perubahan lingkungan bisnis dan kebutuhan organisasi?,",
-  ];
-  const assessment2 = [
-    "null",
-    "Apakah organisasi memiliki struktur organisasi yang ditetapkan secara jelas untuk mengelola dan bertanggung jawab atas keamanan informasi?",
-    "Apakah struktur organisasi keamanan informasi dirancang dan diimplementasikan dengan baik dalam organisasi?",
-    "Apakah peran dan tanggung jawab dalam pengelolaan keamanan informasi telah ditetapkan dengan jelas?",
-    "Apakah ada unit atau departemen khusus yang fokus pada keamanan informasi dan memiliki kewenangan yang memadai di dalam organisasi?",
-    "Apakah terdapat kolaborasi yang baik antara tim keamanan informasi dan unit lain dalam organisasi, seperti manajemen senior, departemen TI, dan bagian operasional?",
-    "Apakah organisasi memiliki proses dan mekanisme yang efektif untuk melaporkan, menangani, dan mengelola insiden keamanan informasi?",
-    "Apakah personel yang ditugaskan untuk mengelola keamanan informasi memiliki pengetahuan, keterampilan, dan pelatihan yang diperlukan untuk melaksanakan tugas mereka?",
-  ];
-  const assessment3 = [
-    "null",
-    "Apakah organisasi memiliki proses yang ditetapkan untuk mengidentifikasi, mengklasifikasikan, dan mengelola aset informasi yang dimiliki?",
-    "Apakah ada kebijakan dan prosedur yang jelas untuk melindungi aset informasi organisasi, termasuk tindakan pengamanan yang tepat?",
-    "Apakah aset informasi organisasi telah diidentifikasi dengan jelas, termasuk kepemilikan dan tanggung jawab atas aset tersebut?",
-    "Apakah organisasi memiliki langkah-langkah untuk memastikan perlindungan aset informasi dari ancaman dan risiko yang ada?",
-    "Apakah ada prosedur yang ditetapkan untuk memelihara dan memantau kondisi serta keamanan aset informasi organisasi?",
-    "Apakah terdapat kebijakan atau prosedur yang mengatur pemindahan, penghapusan, atau pemusnahan aset informasi yang tidak lagi diperlukan atau relevan?",
-    "Apakah organisasi memiliki mekanisme untuk mendeteksi, melaporkan, dan menangani kehilangan atau penyalahgunaan aset informasi?",
-  ];
-  const assessment4 = [
-    "null",
-    "Apakah organisasi memiliki program atau kebijakan yang secara khusus dirancang untuk meningkatkan kesadaran keamanan informasi di kalangan karyawan?",
-    "Apakah karyawan menerima pelatihan keamanan informasi yang tepat dan berkala, termasuk penekanan pada praktik keamanan yang relevan dengan tugas dan tanggung jawab mereka?",
-    "Apakah terdapat kebijakan atau prosedur yang memastikan bahwa karyawan memahami dan mematuhi praktik keamanan informasi yang telah ditetapkan?",
-    "Apakah organisasi memiliki mekanisme untuk melibatkan karyawan dalam identifikasi, penilaian, dan pengurangan risiko keamanan informasi?",
-    "Apakah terdapat insentif atau penghargaan yang diberikan kepada karyawan yang berkontribusi secara positif dalam praktik keamanan informasi?",
-    "Apakah organisasi memiliki prosedur yang efektif untuk mengelola perubahan peran, mutasi, atau pemutusan hubungan kerja dengan karyawan dalam konteks keamanan informasi?",
-    "Apakah terdapat mekanisme untuk melaporkan pelanggaran keamanan informasi dan apakah karyawan merasa nyaman melaporkannya?",
-  ];
-  const assessment5 = [
-    "null",
-    "Apakah organisasi memiliki kebijakan dan prosedur yang jelas terkait dengan kontrol akses fisik dan logis untuk melindungi informasi yang dimiliki?",
-    "Apakah terdapat pengaturan fisik yang memadai, seperti penguncian pintu, pengawasan area terbatas, dan penggunaan kartu akses, untuk mencegah akses fisik yang tidak sah ke ruang dan fasilitas yang mengandung informasi sensitif?",
-    "Apakah terdapat mekanisme untuk mengelola dan mengontrol hak akses pengguna terhadap sistem informasi yang berbasis logis?",
-    "Apakah prosedur autentikasi yang kuat, seperti penggunaan kata sandi yang kompleks, multi-faktor, atau biometrik, diterapkan untuk mengamankan akses logis terhadap informasi?",
-    "Apakah organisasi melakukan pengawasan dan pemantauan terhadap aktivitas akses fisik dan logis untuk mendeteksi dan mengatasi upaya akses yang tidak sah?",
-    "Apakah ada kebijakan dan prosedur yang ditetapkan untuk mengelola perubahan terkait hak akses fisik dan logis, termasuk pengangkatan hak akses yang tidak lagi diperlukan?",
-    "Apakah organisasi memiliki proses untuk melakukan audit terhadap kontrol akses fisik dan logis secara berkala guna memastikan kepatuhan dan keefektifan implementasinya?",
-  ];
-  const assessment6 = [
-    "null",
-    "Apakah organisasi telah mengembangkan rencana pemulihan bencana yang memadai untuk mengatasi gangguan layanan yang mungkin terjadi?",
-    "Apakah proses identifikasi risiko dan analisis dampak telah dilakukan untuk menyusun rencana pemulihan bencana yang tepat dan relevan?",
-    "Apakah rencana pemulihan bencana mencakup langkah-langkah yang jelas untuk memulihkan layanan dengan cepat dan efisien setelah terjadinya gangguan?",
-    "Apakah ada mekanisme untuk menguji dan melatih rencana pemulihan bencana secara berkala guna memastikan keandalan dan kesiapan saat diimplementasikan?",
-    "Apakah rencana pemulihan bencana diperbarui secara teratur sesuai dengan perubahan yang terjadi dalam infrastruktur teknologi dan kebutuhan organisasi?",
-    "Apakah peran dan tanggung jawab individu atau tim yang bertanggung jawab dalam pelaksanaan rencana pemulihan bencana telah ditetapkan dengan jelas?",
-    "Apakah ada mekanisme pelaporan dan evaluasi setelah terjadinya gangguan yang memungkinkan organisasi untuk mengidentifikasi pelajaran dan melakukan perbaikan berkelanjutan pada rencana pemulihan bencana?",
-  ];
-  const assessment7 = [
-    "null",
-    "Apakah organisasi memiliki proses pemantauan yang efektif untuk mengawasi operasi keamanan dan mendeteksi potensi ancaman atau pelanggaran keamanan?",
-    "Apakah ada jadwal dan prosedur pemeliharaan yang ditetapkan untuk memastikan keberlanjutan dan kinerja optimal sistem keamanan?",
-    "Apakah sistem keamanan organisasi dilindungi secara memadai dari serangan dan gangguan dengan menggunakan teknologi dan solusi keamanan yang sesuai?",
-    "Apakah telah ditetapkan kebijakan dan prosedur untuk menjaga kerahasiaan, integritas, dan ketersediaan data dan sistem?",
-    "Apakah organisasi memiliki prosedur pemulihan bencana yang memadai untuk mengatasi kerusakan atau gangguan yang dapat terjadi pada sistem keamanan operasional?",
-    "Apakah dilakukan penilaian risiko secara berkala terhadap sistem keamanan operasional guna mengidentifikasi ancaman baru dan memastikan langkah-langkah perlindungan yang relevan?",
-    "Apakah organisasi memiliki mekanisme pelaporan dan penanganan insiden yang efektif untuk mengatasi dan merespons kejadian keamanan yang mungkin terjadi?",
-  ];
+  const initialHasilKontrol = {
+    nama: "",
+    kontrolKeamanan: "",
+    hasil: "",
+    kategori: "",
+    skor: "",
+  };
 
-  const assessment8 = [
-    "null",
-    "Apakah ada kebijakan dan prosedur yang telah ditetapkan untuk melindungi informasi saat diproses, disimpan, dan ditransmisikan?",
-    "Apakah dilakukan enkripsi untuk melindungi kerahasiaan dan integritas informasi yang diproses, disimpan, atau ditransmisikan melalui jaringan atau media lainnya?",
-    "Apakah ada mekanisme pengelolaan kunci yang aman untuk mendukung implementasi enkripsi dan menghindari penggunaan kunci yang lemah atau tidak aman?",
-    "Apakah terdapat pemantauan dan pengendalian yang efektif untuk melindungi informasi saat diproses, seperti kontrol akses, pemisahan tugas, dan pembatasan hak akses?",
-    "Apakah langkah-langkah keamanan teknis telah diimplementasikan untuk melindungi informasi saat disimpan, seperti penggunaan firewall, antivirus, dan mekanisme keamanan lainnya?",
-    "Apakah ada kebijakan dan prosedur yang mengatur penggunaan perangkat seluler, perangkat USB, dan media penyimpanan lainnya untuk mencegah kebocoran atau penyalahgunaan informasi?",
-    "Apakah ada langkah-langkah perlindungan yang efektif untuk melindungi informasi saat ditransmisikan melalui jaringan, seperti penggunaan VPN, protokol keamanan, atau tautan aman?",
-  ];
+  const [hasilKontrol1, setHasilKontrol1] = useState([initialHasilKontrol]);
+  const [hasilKontrol2, setHasilKontrol2] = useState([initialHasilKontrol]);
+  const [hasilKontrol3, setHasilKontrol3] = useState([initialHasilKontrol]);
+  const [hasilKontrol4, setHasilKontrol4] = useState([initialHasilKontrol]);
+  const [hasilKontrol5, setHasilKontrol5] = useState([initialHasilKontrol]);
+  const [hasilKontrol6, setHasilKontrol6] = useState([initialHasilKontrol]);
+  const [hasilKontrol7, setHasilKontrol7] = useState([initialHasilKontrol]);
+  const [hasilKontrol8, setHasilKontrol8] = useState([initialHasilKontrol]);
+  const [hasilKontrol9, setHasilKontrol9] = useState([initialHasilKontrol]);
+  const [hasilKontrol10, setHasilKontrol10] = useState([initialHasilKontrol]);
+  const [hasilKontrol11, setHasilKontrol11] = useState([initialHasilKontrol]);
+  const [hasilKontrol12, setHasilKontrol12] = useState([initialHasilKontrol]);
+  const [hasilKontrol13, setHasilKontrol13] = useState([initialHasilKontrol]);
+  const [hasilKontrol14, setHasilKontrol14] = useState([initialHasilKontrol]);
 
-  const assessment9 = [
-    "null",
-    "Apakah ada kebijakan dan prosedur yang jelas untuk mengelola akses ke sistem informasi?",
-    "Apakah kebijakan dan prosedur tersebut dikomunikasikan kepada semua pengguna sistem informasi?",
-    "Apakah ada proses untuk memverifikasi identitas pengguna sebelum mereka diberikan akses ke sistem informasi?",
-    "Apakah ada proses untuk membatasi akses pengguna ke data dan sistem yang mereka butuhkan untuk melakukan pekerjaan mereka?",
-    "Apakah ada proses untuk melacak akses pengguna ke sistem informasi dan data?",
-    "Apakah ada proses untuk menanggapi akses yang tidak sah atau tidak pantas ke sistem informasi?",
-    "Apakah ada proses untuk memulihkan sistem informasi dari akses yang tidak sah atau tidak pantas?",
-  ];
+  // function analisa kontrol 1
+  const analisaKontrol1 = () => {
+    let kontrol1 = risk11 + risk12 + risk13 + risk14 + risk15 + risk16 + risk17;
+    let hasilKontrol1: any, kategori: any;
+    // kontrol 1
+    switch (true) {
+      case kontrol1 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol1 =
+          "### Umpan balik Kebijakan keamanan informasi ini (Tidak Layak)\n\n Kontrol keamanan informasi ini tidak memenuhi standar ISO 27002 dan menghadirkan risiko serius bagi organisasi. Organisasi perlu melakukan evaluasi mendalam dan memperbaiki kontrol ini untuk memastikan kepatuhan dan perlindungan yang lebih baik terhadap informasi.";
+        break;
+      case kontrol1 == 1 || kontrol1 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol1 =
+          "### Umpan balik Kontrol Kebijakan keamanan informasi ini (Memenuhi Kerangka Dasar)\n\n Kontrol ini memenuhi beberapa elemen dasar dari ISO 27002, tetapi masih memerlukan banyak perbaikan untuk mencapai tingkat kepatuhan yang lebih baik. Organisasi perlu mengidentifikasi area yang perlu diperbaiki dan meningkatkan detail serta ketepatan kebijakan.";
+        break;
+      case kontrol1 == 8 || kontrol1 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol1 =
+          "### Umpan balik Kontrol Umpan balik Kebijakan keamanan informasi ini (Cukup Baik)\n\n Kontrol keamanan informasi ini cukup memenuhi persyaratan dasar ISO 27002 dan mencakup banyak elemen yang diperlukan. Organisasi perlu melakukan evaluasi rutin dan memperbaiki kebijakan sesuai dengan perubahan lingkungan dan ancaman keamanan.";
+        break;
+      case kontrol1 == 16 || kontrol1 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol1 =
+          "### Umpan balik Kontrol Kebijakan keamanan informasi ini (Baik)\n\n Kontrol keamanan informasi ini sepenuhnya mematuhi standar ISO 27002 dan menunjukkan keunggulan dalam penerapan kebijakan keamanan informasi.";
+        break;
+      default:
+        hasilKontrol1 = "null";
+        break;
+    }
 
-  const assessment10 = [
-    "null",
-    "Apakah ada kebijakan dan prosedur yang jelas untuk integrasi keamanan dalam siklus hidup pengembangan sistem informasi?",
-    "Apakah kebijakan dan prosedur tersebut dikomunikasikan kepada semua pihak yang terlibat dalam pengembangan sistem informasi?",
-    "Apakah ada proses untuk mengidentifikasi dan mengevaluasi risiko keamanan pada sistem informasi yang sedang dikembangkan?",
-    "Apakah ada proses untuk mengurangi risiko keamanan pada sistem informasi yang sedang dikembangkan?",
-    "Apakah ada proses untuk menguji keamanan sistem informasi yang sedang dikembangkan?",
-    "Apakah ada proses untuk mendokumentasikan keamanan sistem informasi yang sedang dikembangkan?",
-    "Apakah ada proses untuk memelihara keamanan sistem informasi yang telah dikembangkan?",
-  ];
+    const updatedHasilKontrol1 = [...hasilKontrol1];
 
-  const assessment11 = [
-    "null",
-    "Apakah organisasi memiliki kebijakan dan prosedur yang ditetapkan untuk mengelola insiden keamanan dan pelanggaran keamanan yang terjadi?",
-    "Apakah terdapat mekanisme pelaporan yang efektif untuk melaporkan insiden keamanan dan pelanggaran keamanan kepada pihak yang berwenang?",
-    "Apakah organisasi memiliki tim atau personil yang ditugaskan secara khusus untuk menangani dan merespons insiden keamanan dengan cepat dan efektif?",
-    "Apakah ada proses investigasi yang ditetapkan untuk menganalisis penyebab dan dampak insiden keamanan serta untuk mengambil tindakan yang sesuai?",
-    "Apakah dilakukan dokumentasi dan pelaporan yang tepat terkait dengan insiden keamanan dan langkah-langkah yang diambil untuk menanganinya?",
-    "Apakah organisasi melakukan pelatihan dan kesadaran kepada karyawan terkait dengan pelaporan insiden keamanan dan pentingnya kerjasama dalam penanganannya?",
-    "Apakah terdapat prosedur pemulihan setelah terjadinya insiden keamanan untuk mengembalikan sistem dan data ke keadaan yang aman dan operasional?",
-  ];
+    updatedHasilKontrol1[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Kebijakan keamanan informasi",
+      hasil: hasilKontrol1,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol1.toString(),
+    };
 
-  const assessment12 = [
-    "null",
-    "Apakah organisasi memiliki kebijakan dan prosedur yang mengatur keamanan informasi saat menjalin hubungan bisnis dengan pihak eksternal?",
-    "Apakah dilakukan evaluasi risiko terkait dengan hubungan bisnis dengan pihak eksternal untuk memastikan perlindungan informasi dan kepatuhan terhadap standar keamanan yang berlaku?",
-    "Apakah terdapat perjanjian kerahasiaan atau kontrak keamanan yang ditetapkan dengan pihak eksternal untuk melindungi informasi rahasia atau sensitif?",
-    "Apakah ada mekanisme pengawasan dan pemantauan yang efektif untuk mengontrol akses dan penggunaan informasi oleh pihak eksternal?",
-    "Apakah terdapat proses pengendalian untuk memastikan bahwa informasi yang dibagikan kepada pihak eksternal hanya sesuai dengan kebutuhan bisnis dan sesuai dengan tingkat keamanan yang telah ditentukan?",
-    "Apakah dilakukan pemantauan terhadap kepatuhan pihak eksternal terhadap persyaratan keamanan informasi yang telah ditetapkan?",
-    "Apakah organisasi memiliki mekanisme untuk menangani pelanggaran keamanan yang dilakukan oleh pihak eksternal dan mengambil tindakan yang sesuai?",
-  ];
+    setHasilKontrol1(updatedHasilKontrol1);
+  };
 
-  const assessment13 = [
-    null,
-    "Apakah organisasi memiliki proses yang ditetapkan untuk memastikan kepatuhan terhadap persyaratan hukum yang berlaku terkait dengan keamanan informasi?",
-    "Apakah dilakukan evaluasi terhadap regulasi dan persyaratan industri yang berlaku untuk memastikan kepatuhan dan implementasi yang tepat?",
-    "Apakah ada tim atau personil yang ditugaskan secara khusus untuk memantau dan mengelola kepatuhan terhadap persyaratan hukum, regulasi, dan standar industri yang relevan?",
-    "Apakah terdapat kebijakan dan prosedur yang telah ditetapkan untuk mengelola perubahan dalam persyaratan hukum atau regulasi terkait keamanan informasi?",
-    "Apakah dilakukan audit internal secara berkala untuk mengevaluasi tingkat kepatuhan organisasi terhadap persyaratan hukum, regulasi, dan standar industri yang berlaku?",
-    "Apakah terdapat proses pelaporan yang efektif untuk melaporkan pelanggaran hukum, regulasi, atau persyaratan industri terkait keamanan informasi?",
-    "Apakah organisasi memiliki mekanisme pemantauan dan peninjauan yang sistematis untuk memastikan bahwa kepatuhan dengan persyaratan hukum dan regulasi terus dipatuhi?",
-  ];
+  // function analisa kontrol 2
+  const analisaKontrol2 = () => {
+    let kontrol2 = risk21 + risk22 + risk23 + risk24 + risk25 + risk26 + risk27;
+    let hasilKontrol2: any, kategori: any;
+    // kontrol 2
+    switch (true) {
+      case kontrol2 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol2 =
+          "### Umpan balik Organisasi keamanan informasi(Tidak Layak)\n\n Kontrol ini belum diterapkan atau diterapkan secara sangat tidak memadai dalam organisasi keamanan informasi. Kekurangan dalam implementasi dapat menyebabkan risiko keamanan yang tinggi dan rentan terhadap ancaman internal dan eksternal.";
+        break;
+      case kontrol2 == 1 || kontrol2 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol2 =
+          "### Umpan balik Organisasi keamanan informasi(Memenuhi Kerangka Dasar)\n\n Kontrol ini telah diimplementasikan secara dasar, namun ada beberapa kelemahan atau celah keamanan yang perlu diperbaiki. Implementasi kontrol ini mungkin belum konsisten dan tidak sepenuhnya mengikuti panduan yang ditetapkan oleh ISO 27002.";
+        break;
+      case kontrol2 == 8 || kontrol2 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol2 =
+          "### Umpan balik Organisasi keamanan informasi(Cukup Baik)\n\n Kontrol ini telah diimplementasikan dengan baik dan sebagian besar aspek keamanannya telah diterapkan secara memadai. Namun, mungkin masih ada beberapa area yang dapat ditingkatkan untuk meningkatkan keamanan secara keseluruhan.";
+        break;
+      case kontrol2 == 16 || kontrol2 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol2 =
+          "### Umpan balik Organisasi keamanan informasi(Baik)\n\n Kontrol ini telah diimplementasikan dengan sangat baik dan mencapai standar keamanan informasi yang diinginkan sesuai dengan ISO 27002.";
+        break;
+      default:
+        hasilKontrol2 = "null";
+        break;
+    }
 
-  const assessment14 = [
-    null,
-    "Apakah organisasi melakukan audit keamanan informasi secara teratur untuk mengevaluasi efektivitas kontrol keamanan yang telah diimplementasikan?",
-    "Apakah dilakukan penjadwalan audit keamanan informasi yang mencakup seluruh aspek sistem dan kebijakan keamanan yang ada?",
-    "Apakah ada tim atau personel yang bertanggung jawab secara khusus dalam melaksanakan audit keamanan informasi di organisasi?",
-    "Apakah terdapat metode dan prosedur audit yang telah ditetapkan untuk memastikan konsistensi dan obyektivitas dalam pelaksanaan audit keamanan informasi?",
-    "Apakah hasil dari audit keamanan informasi dikomunikasikan secara efektif kepada pihak yang berwenang dan pihak-pihak yang terkait?",
-    "Apakah organisasi telah mengambil langkah-langkah untuk menindaklanjuti rekomendasi atau temuan dari audit keamanan informasi yang telah dilakukan sebelumnya?",
-    "Apakah dilakukan pemantauan dan pengukuran terhadap tindak lanjut yang diambil sebagai hasil dari audit keamanan informasi untuk memastikan implementasi yang efektif?",
-  ];
+    const updatedHasilKontrol2 = [...hasilKontrol2];
+
+    updatedHasilKontrol2[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Organisasi keamanan informasi",
+      hasil: hasilKontrol2,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol2.toString(),
+    };
+
+    setHasilKontrol2(updatedHasilKontrol2);
+  };
+
+  // function analisa kontrol 3
+  const analisaKontrol3 = () => {
+    let kontrol3 = risk31 + risk32 + risk33 + risk34 + risk35 + risk36 + risk37;
+    let hasilKontrol3: any, kategori: any;
+    // kontrol 3
+    switch (true) {
+      case kontrol3 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol3 =
+          "### Umpan balik Manajemen aset(Tidak Layak)\n\n Kontrol keamanan ini tidak dipatuhi atau diabaikan sepenuhnya. Risiko kehilangan, kebocoran, atau penyalahgunaan aset informasi sangat tinggi, dan organisasi tidak mengambil tindakan yang memadai untuk mengatasi masalah ini.";
+        break;
+      case kontrol3 == 1 || kontrol3 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol3 =
+          "### Umpan balik Manajemen aset(Memenuhi Kerangka Dasar)\n\n Organisasi memiliki kerangka dasar untuk mengelola aset informasi, namun implementasinya masih terbatas. Beberapa aset mungkin sudah terlindungi, tetapi masih ada area yang rentan dan memerlukan perhatian lebih.";
+        break;
+      case kontrol3 == 8 || kontrol3 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol3 =
+          "### Umpan balik Manajemen aset(Cukup Baik)\n\n Kontrol keamanan ini telah diimplementasikan dengan cukup baik oleh organisasi. Organisasi juga telah melaksanakan tindakan pemeliharaan rutin untuk memastikan aset tetap relevan dan aman dari ancaman yang mungkin timbul.";
+        break;
+      case kontrol3 == 16 || kontrol3 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol3 =
+          "### Umpan balik Manajemen aset(Baik)\n\n Organisasi telah mencapai tingkat keunggulan dalam mengelola aset informasi.";
+        break;
+      default:
+        hasilKontrol3 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol3 = [...hasilKontrol3];
+
+    updatedHasilKontrol3[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Manajemen aset",
+      hasil: hasilKontrol3,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol3.toString(),
+    };
+
+    setHasilKontrol3(updatedHasilKontrol3);
+  };
+
+  // function analisa kontrol 4
+  const analisaKontrol4 = () => {
+    let kontrol4 = risk41 + risk42 + risk43 + risk44 + risk45 + risk46 + risk47;
+    let hasilKontrol4: any, kategori: any;
+    // kontrol 4
+    switch (true) {
+      case kontrol4 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol4 =
+          "### Umpan balik Keamanan sumber daya manusia(Tidak Layak)\n\n Tidak ada upaya untuk memberikan pelatihan dan kesadaran keamanan yang memadai kepada karyawan.";
+        break;
+      case kontrol4 == 1 || kontrol4 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol4 =
+          "### Umpan balik Keamanan sumber daya manusia(Memenuhi Kerangka Dasar)\n\n Sebagian besar karyawan memiliki kesadaran tentang pentingnya keamanan informasi dan terlibat dalam beberapa praktik keamanan. Meskipun ada kesadaran, keterlibatan aktif dalam mengidentifikasi dan melaporkan insiden keamanan masih perlu ditingkatkan.";
+        break;
+      case kontrol4 == 8 || kontrol4 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol4 =
+          "### Umpan balik Keamanan sumber daya manusia(Cukup Baik)\n\n Karyawan secara umum memiliki pemahaman yang baik tentang pentingnya keamanan informasi dan terlibat secara aktif dalam praktik keamanan. Karyawan cenderung melaporkan insiden keamanan dan bekerja sama dalam mengidentifikasi dan mengurangi risiko keamanan.";
+        break;
+      case kontrol4 == 16 || kontrol4 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol4 =
+          "### Umpan balik Keamanan sumber daya manusia(Baik)\n\n Karyawan memiliki kesadaran yang tinggi tentang pentingnya keamanan informasi dan secara proaktif terlibat dalam menjalankan praktik keamanan.";
+        break;
+      default:
+        hasilKontrol4 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol4 = [...hasilKontrol4];
+
+    updatedHasilKontrol4[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Keamanan sumber daya manusia",
+      hasil: hasilKontrol4,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol4.toString(),
+    };
+
+    setHasilKontrol4(updatedHasilKontrol4);
+  };
+
+  // function analisa kontrol 5
+  const analisaKontrol5 = () => {
+    let kontrol5 = risk51 + risk52 + risk53 + risk54 + risk55 + risk56 + risk57;
+    let hasilKontrol5: any, kategori: any;
+    // kontrol 5
+    switch (true) {
+      case kontrol5 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol5 =
+          "### Umpan balik Akses kontrol(Tidak Layak)\n\n Kontrol keamanan ini tidak diimplementasikan atau diabaikan sepenuhnya. Tidak ada upaya yang dilakukan untuk melindungi informasi dari akses yang tidak sah, baik secara fisik maupun logis. Kondisi ini meningkatkan risiko kebocoran data dan potensi kehilangan informasi yang sangat sensitif.";
+        break;
+      case kontrol5 == 1 || kontrol5 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol5 =
+          "### Umpan balik Akses kontrol(Memenuhi Kerangka Dasar)\n\n Kontrol keamanan ini ada, tetapi implementasinya masih sangat terbatas dan belum sepenuhnya sesuai dengan standar ISO 27002. Beberapa upaya telah dilakukan untuk menerapkan kontrol akses fisik dan logis, namun masih ada kelemahan dan celah yang dapat dieksploitasi oleh pihak yang tidak sah.";
+        break;
+      case kontrol5 == 8 || kontrol5 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol5 =
+          "### Umpan balik Akses kontrol(Cukup Baik)\n\n Penerapan kontrol akses fisik dan logis telah mencapai tingkat yang cukup baik sesuai dengan ISO 27002. Upaya yang serius telah dilakukan untuk melindungi informasi dari akses yang tidak sah. Namun, masih ada beberapa area yang perlu ditingkatkan untuk mencapai tingkat keamanan yang optimal.";
+        break;
+      case kontrol5 == 16 || kontrol5 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol5 =
+          "### Umpan balik Akses kontrol(Baik)\n\n Kontrol keamanan ini diimplementasikan dengan sangat baik sesuai dengan standar ISO 27002. Semua persyaratan untuk menerapkan kontrol akses fisik dan logis telah dipenuhi dengan benar. Informasi sensitif dan kritis telah terlindungi dengan efektif dari akses yang tidak sah, baik dari segi fisik maupun logis. Sistem keamanan ini dianggap kuat dan handal.";
+        break;
+      default:
+        hasilKontrol5 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol5 = [...hasilKontrol5];
+
+    updatedHasilKontrol5[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Akses kontrol",
+      hasil: hasilKontrol5,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol5.toString(),
+    };
+
+    setHasilKontrol5(updatedHasilKontrol5);
+  };
+
+  // function analisa kontrol 6
+  const analisaKontrol6 = () => {
+    let kontrol6 = risk61 + risk62 + risk63 + risk64 + risk65 + risk66 + risk67;
+    let hasilKontrol6: any, kategori: any;
+    // kontrol 6
+    switch (true) {
+      case kontrol6 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol6 =
+          "### Umpan balik Perencanaan dan pemulihan bencana(Tidak Layak)\n\n Organisasi ini tidak memiliki rencana pemulihan bencana yang jelas dan terstruktur untuk mengatasi gangguan layanan. Kurangnya perencanaan ini dapat menyebabkan ketidakmampuan untuk memulihkan layanan dengan efisien, menyebabkan kerugian yang signifikan bagi bisnis dan pelanggan.";
+        break;
+      case kontrol6 == 1 || kontrol6 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol6 =
+          "### Umpan balik Perencanaan dan pemulihan bencana(Memenuhi Kerangka Dasar)\n\n Organisasi ini telah mengambil langkah awal dalam mengembangkan rencana pemulihan bencana. Mereka telah mengidentifikasi beberapa risiko potensial dan mulai menyusun rencana dasar untuk mengatasi gangguan layanan. Namun, rencana ini mungkin masih perlu diperbaiki dan diperinci agar lebih efektif. ";
+        break;
+      case kontrol6 == 8 || kontrol6 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol6 =
+          "### Umpan balik Perencanaan dan pemulihan bencana(Cukup Baik)\n\n Organisasi ini telah berhasil mengembangkan dan mengimplementasikan rencana pemulihan bencana yang memadai. Rencana pemulihan ini juga telah diuji secara berkala dan telah melibatkan seluruh tim terkait. Meskipun ada ruang untuk peningkatan dan perbaikan, rencana pemulihan ini memberikan fondasi yang solid untuk menghadapi bencana dan meminimalkan dampaknya.";
+        break;
+      case kontrol6 == 16 || kontrol6 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol6 =
+          "### Umpan balik Perencanaan dan pemulihan bencana(Baik)\n\n Organisasi ini memiliki rencana pemulihan bencana yang sangat baik dan teruji. Rencana ini mencakup langkah-langkah yang rinci dan jelas untuk mengatasi berbagai jenis bencana dan gangguan layanan.";
+        break;
+      default:
+        hasilKontrol6 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol6 = [...hasilKontrol6];
+
+    updatedHasilKontrol6[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Perencanaan dan pemulihan bencana",
+      hasil: hasilKontrol6,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol6.toString(),
+    };
+
+    setHasilKontrol6(updatedHasilKontrol6);
+  };
+
+  // function analisa kontrol 7
+  const analisaKontrol7 = () => {
+    let kontrol7 = risk71 + risk72 + risk73 + risk74 + risk75 + risk76 + risk77;
+    let hasilKontrol7: any, kategori: any;
+    // kontrol 7
+    switch (true) {
+      case kontrol7 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol7 =
+          "### Umpan balik Manajemen keamanan operasional(Tidak Layak)\n\n Kontrol ini tidak memenuhi kerangka dasar yang diperlukan untuk memastikan operasi keamanan yang efektif. Pemantauan, pemeliharaan, dan perlindungan sistem tidak dilaksanakan dengan cukup, meninggalkan celah dalam keamanan dan berisiko untuk menghadapi ancaman keamanan.";
+        break;
+      case kontrol7 == 1 || kontrol7 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol7 =
+          "### Umpan balik Manajemen keamanan operasional(Memenuhi Kerangka Dasar)\n\n Kontrol ini memenuhi kerangka dasar untuk memastikan operasi keamanan yang efektif melalui pemantauan, pemeliharaan, dan perlindungan sistem. Namun, masih ada beberapa aspek yang perlu diperbaiki untuk mencapai tingkat keamanan yang optimal.";
+        break;
+      case kontrol7 == 8 || kontrol7 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol7 =
+          "### Umpan balik Manajemen keamanan operasional(Cukup Baik)\n\n Kontrol ini cukup baik dalam memastikan operasi keamanan yang efektif melalui pemantauan, pemeliharaan, dan perlindungan sistem. Sebagian besar kebutuhan keamanan terpenuhi, tetapi ada beberapa ruang untuk peningkatan dan penyesuaian untuk menghadapi perkembangan ancaman keamanan yang lebih baru.";
+        break;
+      case kontrol7 == 16 || kontrol7 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol7 =
+          "### Umpan balik Manajemen keamanan operasional(Baik)\n\n Kontrol telah diimplementasikan dengan baik dan mencakup aspek-aspek penting yang diperlukan untuk melindungi sistem dari ancaman keamanan. Dengan adanya kontrol ini, risiko keamanan dapat dikelola dengan baik dan sistem dapat beroperasi dalam kondisi yang lebih aman.";
+        break;
+      default:
+        hasilKontrol7 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol7 = [...hasilKontrol7];
+
+    updatedHasilKontrol7[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Manajemen keamanan operasional",
+      hasil: hasilKontrol7,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol7.toString(),
+    };
+
+    setHasilKontrol7(updatedHasilKontrol7);
+  };
+
+  // function analisa kontrol 8
+  const analisaKontrol8 = () => {
+    let kontrol8 = risk81 + risk82 + risk83 + risk84 + risk85 + risk86 + risk87;
+    let hasilKontrol8: any, kategori: any;
+    // kontrol 8
+    switch (true) {
+      case kontrol8 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol8 =
+          "### Umpan balik Keamanan komunikasi dan operasi(Tidak Layak)\n\n Kontrol ini tidak terlaksana dengan baik, mengakibatkan potensi kerentanannya dalam perlindungan informasi saat diproses, disimpan, dan ditransmisikan. Kelemahan dalam implementasi kontrol ini dapat menyebabkan pelanggaran keamanan dan risiko serius terhadap informasi sensitif.";
+        break;
+      case kontrol8 == 1 || kontrol8 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol8 =
+          "### Umpan balik Keamanan komunikasi dan operasi(Memenuhi Kerangka Dasar)\n\n Kontrol ini telah dipenuhi secara dasar dengan beberapa upaya untuk melindungi informasi saat diproses, disimpan, dan ditransmisikan. Namun, masih ada ruang untuk peningkatan dalam implementasi, pemantauan, dan pemeliharaan kontrol untuk mencapai tingkat keamanan yang lebih tinggi.";
+        break;
+      case kontrol8 == 8 || kontrol8 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol8 =
+          "### Umpan balik Keamanan komunikasi dan operasi(Cukup Baik)\n\n Kontrol ini telah diimplementasikan secara memadai dengan tindakan yang efektif dalam melindungi informasi saat diproses, disimpan, dan ditransmisikan. Upaya yang cukup baik telah dilakukan untuk mengurangi risiko keamanan, namun ada beberapa aspek yang dapat diperbaiki untuk memastikan keamanan yang lebih kuat.";
+        break;
+      case kontrol8 == 16 || kontrol8 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol8 =
+          "### Umpan balik Keamanan komunikasi dan operasi(Baik)\n\n Kontrol ini telah diimplementasikan dengan sangat baik dan efisien. Informasi saat diproses, disimpan, dan ditransmisikan dilindungi secara efektif dengan tindakan pencegahan dan pengamanan yang tepat. Organisasi telah mencapai tingkat keamanan yang sesuai dengan standar industri dan dapat diandalkan dalam melindungi informasi sensitif.";
+        break;
+      default:
+        hasilKontrol8 = "null";
+        break;
+        0;
+    }
+
+    const updatedHasilKontrol8 = [...hasilKontrol8];
+
+    updatedHasilKontrol8[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Keamanan komunikasi dan operasi",
+      hasil: hasilKontrol8,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol8.toString(),
+    };
+
+    setHasilKontrol8(updatedHasilKontrol8);
+  };
+
+  // function analisa kontrol 9
+  const analisaKontrol9 = () => {
+    let kontrol9 = risk91 + risk92 + risk93 + risk94 + risk95 + risk96 + risk97;
+    let hasilKontrol9: any, kategori: any;
+    // kontrol 9
+    switch (true) {
+      case kontrol9 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol9 =
+          "### Umpan balik Pengendalian akses sistem informasi(Tidak Layak)\n\n Kontrol keamanan ini tidak diimplementasikan atau hanya terdapat upaya yang minim dalam mencegah akses yang tidak sah atau tidak pantas ke sistem informasi. Kebijakan dan mekanisme pengendalian akses belum disusun atau belum dijalankan dengan baik, meninggalkan celah bagi potensi ancaman keamanan yang dapat mengakibatkan akses yang tidak sah ke informasi kritis.";
+        break;
+      case kontrol9 == 1 || kontrol9 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol9 =
+          "### Umpan balik Pengendalian akses sistem informasi(Memenuhi Kerangka Dasar)\n\n Kontrol keamanan ini sebagian besar telah diimplementasikan dengan mengacu pada kerangka dasar kebijakan dan mekanisme pengendalian akses. Namun, beberapa area mungkin masih perlu perbaikan atau pembaruan untuk menutup celah keamanan yang mungkin ada.";
+        break;
+      case kontrol9 == 8 || kontrol9 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol9 =
+          "### Umpan balik Pengendalian akses sistem informasi(Cukup Baik)\n\n Kontrol keamanan ini secara substansial telah diterapkan dan sesuai dengan kebijakan dan mekanisme pengendalian akses.Pihak yang berwenang secara aktif mengawasi dan melacak aktivitas akses, dan tindakan pencegahan lanjutan dilakukan secara proaktif untuk mengatasi potensi masalah keamanan.";
+        break;
+      case kontrol9 == 16 || kontrol9 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol9 =
+          "### Umpan balik Pengendalian akses sistem informasi(Baik)\n\n Kontrol keamanan ini telah diimplementasikan secara menyeluruh, efektif, dan efisien.";
+        break;
+      default:
+        hasilKontrol9 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol9 = [...hasilKontrol9];
+
+    updatedHasilKontrol9[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Pengendalian akses sistem informasi",
+      hasil: hasilKontrol9,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol9.toString(),
+    };
+
+    setHasilKontrol9(updatedHasilKontrol9);
+  };
+
+  // function analisa kontrol 10
+  const analisaKontrol10 = () => {
+    let kontrol10 = risk101 + risk102 + risk103 + risk104 + risk105 + risk106 + risk107;
+    let hasilKontrol10: any, kategori: any;
+    // kontrol 10
+    switch (true) {
+      case kontrol10 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol10 =
+          "### Umpan balik Perolehan, pengembangan, dan pemeliharaan sistem informasi(Tidak Layak)\n\n Kontrol keamanan ini tidak diterapkan sepenuhnya dalam siklus hidup pengembangan sistem informasi, menyebabkan risiko potensial terhadap keamanan informasi dan kemungkinan terjadinya celah keamanan. Organisasi perlu segera memperhatikan dan mengatasi kekurangan dalam mengintegrasikan aspek keamanan dalam seluruh tahapan pengembangan sistem informasi.";
+        break;
+      case kontrol10 == 1 || kontrol10 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol10 =
+          "### Umpan balik Perolehan, pengembangan, dan pemeliharaan sistem informasi(Memenuhi Kerangka Dasar)\n\n Organisasi telah menciptakan kerangka dasar untuk mengintegrasikan keamanan dalam siklus hidup pengembangan sistem informasi. Namun, penerapan dan kepatuhan terhadap kontrol ini mungkin belum konsisten di seluruh proses pengembangan. Perlu dilakukan evaluasi lebih lanjut dan perbaikan untuk memastikan penerapan yang konsisten dan efektif.";
+        break;
+      case kontrol10 == 8 || kontrol10 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol10 =
+          "### Umpan balik Perolehan, pengembangan, dan pemeliharaan sistem informasi(Cukup Baik)\n\n Organisasi telah berhasil mengintegrasikan aspek keamanan dalam sebagian besar tahapan pengembangan, namun beberapa bagian mungkin masih terlalu lemah atau kurang terdefinisi dengan baik.";
+        break;
+      case kontrol10 == 16 || kontrol10 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol10 =
+          "### Umpan balik Perolehan, pengembangan, dan pemeliharaan sistem informasi(Baik)\n\n Organisasi telah berhasil mengintegrasikan keamanan secara holistik dalam seluruh siklus hidup pengembangan sistem informasi.";
+        break;
+      default:
+        hasilKontrol10 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol10 = [...hasilKontrol10];
+
+    updatedHasilKontrol10[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Perolehan, pengembangan, dan pemeliharaan sistem informasi",
+      hasil: hasilKontrol10,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol10.toString(),
+    };
+
+    setHasilKontrol10(updatedHasilKontrol10);
+  };
+
+  // function analisa kontrol 11
+  const analisaKontrol11 = () => {
+    let kontrol11 = risk111 + risk112 + risk113 + risk114 + risk115 + risk116 + risk117;
+    let hasilKontrol11: any, kategori: any;
+    // kontrol 11
+    switch (true) {
+      case kontrol11 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol11 =
+          "### Umpan balik Pengelolaan ketidaksesuaian(Tidak Layak)\n\n Organisasi tidak memiliki prosedur yang tepat untuk menangani insiden keamanan, sehingga dapat menyebabkan eskalasi masalah dan meningkatkan risiko keamanan keseluruhan. Selain itu, juga tidak ada rencana tindakan yang jelas untuk mengurangi dampak dari insiden keamanan yang terjadi.";
+        break;
+      case kontrol11 == 1 || kontrol11 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol11 =
+          "### Umpan balik Pengelolaan ketidaksesuaian(Memenuhi Kerangka Dasar)\n\n Organisasi memiliki beberapa prosedur dan kebijakan yang relevan untuk mengidentifikasi, mengelola, dan menangani insiden keamanan dan pelanggaran keamanan yang terjadi. Namun, beberapa aspek mungkin belum sepenuhnya tertutupi atau terdokumentasi dengan jelas. Reaksi terhadap insiden keamanan mungkin terkadang kurang terkoordinasi, dan analisis akar penyebab pelanggaran keamanan mungkin perlu ditingkatkan.";
+        break;
+      case kontrol11 == 8 || kontrol11 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol11 =
+          "### Umpan balik Pengelolaan ketidaksesuaian(Cukup Baik)\n\n Organisasi secara aktif menerapkan kebijakan dan prosedur yang efektif untuk mengidentifikasi, mengelola, dan menangani insiden keamanan serta pelanggaran keamanan yang terjadi. Tim keamanan sering melakukan analisis akar penyebab insiden untuk mengurangi kemungkinan terulangnya peristiwa serupa di masa depan. Namun, ada ruang untuk meningkatkan reaksi terhadap insiden keamanan yang lebih cepat dan lebih terkoordinasi serta untuk memperbaiki laporan dan dokumentasi insiden.";
+        break;
+      case kontrol11 == 16 || kontrol11 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol11 =
+          "### Umpan balik Pengelolaan ketidaksesuaian(Baik)\n\n Organisasi telah berhasil menerapkan kontrol keamanan ini dengan sangat baik.";
+        break;
+      default:
+        hasilKontrol11 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol11 = [...hasilKontrol11];
+
+    updatedHasilKontrol11[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Pengelolaan ketidaksesuaian",
+      hasil: hasilKontrol11,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol11.toString(),
+    };
+
+    setHasilKontrol11(updatedHasilKontrol11);
+  };
+
+  // function analisa kontrol 12
+  const analisaKontrol12 = () => {
+    let kontrol12 = risk121 + risk122 + risk123 + risk124 + risk125 + risk126 + risk127;
+    let hasilKontrol12: any, kategori: any;
+    // kontrol 12
+    switch (true) {
+      case kontrol12 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol12 =
+          "### Umpan balik Aspek keamanan pada hubungan bisnis(Tidak Layak)\n\n Organisasi tidak memiliki kebijakan formal atau prosedur yang mengatur perlindungan informasi saat menjalin hubungan bisnis dengan pihak eksternal. Ini dapat menyebabkan kebocoran data, risiko pencurian informasi, atau ketidakmampuan untuk mengidentifikasi ancaman keamanan yang mungkin timbul dari keterlibatan pihak eksternal.";
+        break;
+      case kontrol12 == 1 || kontrol12 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol12 =
+          "### Umpan balik Aspek keamanan pada hubungan bisnis(Memenuhi Kerangka Dasar)\n\n Organisasi telah mengadopsi kebijakan formal yang mengatur dan melindungi informasi selama berhubungan bisnis dengan pihak eksternal. Selain itu, kebijakan ini harus mencakup penilaian risiko, kontrak kerahasiaan, dan pembatasan akses informasi yang tepat. Meskipun demikian, implementasi dan pemantauan dapat ditingkatkan untuk memastikan keamanan informasi yang lebih kuat.";
+        break;
+      case kontrol12 == 8 || kontrol12 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol12 =
+          "### Umpan balik Aspek keamanan pada hubungan bisnis(Cukup Baik)\n\n Organisasi memiliki kebijakan yang jelas dan komprehensif yang melindungi informasi selama berhubungan bisnis dengan pihak eksternal. Selain itu, kebijakan ini telah diimplementasikan secara efektif dan diikuti oleh seluruh anggota organisasi. Pemantauan dan penilaian risiko secara berkala juga dilakukan untuk memastikan kebijakan tetap relevan dan efektif menghadapi ancaman keamanan yang terus berkembang.";
+        break;
+      case kontrol12 == 16 || kontrol12 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol12 =
+          "### Umpan balik Aspek keamanan pada hubungan bisnis(Baik)\n\n Organisasi memiliki kebijakan yang kuat, sistematis, dan dijalankan secara konsisten untuk melindungi informasi selama menjalin hubungan bisnis dengan pihak eksternal.";
+        break;
+      default:
+        hasilKontrol12 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol12 = [...hasilKontrol12];
+
+    updatedHasilKontrol12[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Aspek keamanan pada hubungan bisnis",
+      hasil: hasilKontrol12,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol12.toString(),
+    };
+
+    setHasilKontrol12(updatedHasilKontrol12);
+  };
+
+  // function analisa kontrol 13
+  const analisaKontrol13 = () => {
+    let kontrol13 = risk131 + risk132 + risk133 + risk134 + risk135 + risk136 + risk137;
+    let hasilKontrol13: any, kategori: any;
+    // kontrol 13
+    switch (true) {
+      case kontrol13 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol13 =
+          "### Umpan balik Kepatuhan terhadap standar(Tidak Layak)\n\n Organisasi belum memiliki prosedur formal untuk mengidentifikasi dan memastikan kepatuhan dengan persyaratan hukum, regulasi, dan standar industri yang berlaku. Kebijakan yang ada tidak mencakup panduan khusus mengenai pemenuhan persyaratan hukum terkini.";
+        break;
+      case kontrol13 == 1 || kontrol13 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol13 =
+          "### Umpan balik Kepatuhan terhadap standar(Memenuhi Kerangka Dasar)\n\n Organisasi memiliki kerangka dasar untuk memastikan kepatuhan dengan persyaratan hukum, regulasi, dan standar industri. Namun, belum ada langkah-langkah rinci yang ditetapkan untuk menerapkan persyaratan ini ke dalam operasi sehari-hari. Beberapa dokumen kebijakan telah disusun, tetapi belum ada proses yang jelas untuk mengidentifikasi dan meninjau perubahan hukum atau regulasi yang relevan secara teratur.";
+        break;
+      case kontrol13 == 8 || kontrol13 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol13 =
+          "### Umpan balik Kepatuhan terhadap standar(Cukup Baik)\n\n Organisasi telah menetapkan kebijakan dan prosedur formal untuk memastikan kepatuhan dengan persyaratan hukum, regulasi, dan standar industri yang berlaku. Ada tim khusus atau personil yang ditugaskan untuk memantau perubahan hukum yang relevan dan memastikan kebijakan internal selaras dengan perubahan tersebut. Namun, belum ada langkah-langkah konkret yang dilakukan untuk mengukur efektivitas kepatuhan secara reguler atau mengevaluasi risiko kepatuhan.";
+        break;
+      case kontrol13 == 16 || kontrol13 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol13 =
+          "### Umpan balik Kepatuhan terhadap standar(Baik)\n\n Organisasi telah mengadopsi pendekatan sistematis untuk memastikan kepatuhan dengan persyaratan hukum, regulasi, dan standar industri yang berlaku.";
+        break;
+      default:
+        hasilKontrol13 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol13 = [...hasilKontrol13];
+
+    updatedHasilKontrol13[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Kepatuhan terhadap standar",
+      hasil: hasilKontrol13,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol13.toString(),
+    };
+
+    setHasilKontrol13(updatedHasilKontrol13);
+  };
+
+  // function analisa kontrol 14
+  const analisaKontrol14 = () => {
+    let kontrol14 = risk141 + risk142 + risk143 + risk144 + risk145 + risk146 + risk147;
+    let hasilKontrol14: any, kategori: any;
+    // kontrol l4
+    switch (true) {
+      case kontrol14 == 0:
+        kategori = "Risiko Tinggi";
+        hasilKontrol14 =
+          "### Umpan balik Audit keamanan informasi(Tidak Layak)\n\n Organisasi tidak memiliki proses audit keamanan informasi yang terstruktur dan terjadwal. Tidak ada upaya yang jelas untuk mengevaluasi secara teratur efektivitas kontrol keamanan informasi. Karena tidak ada audit yang dilakukan, potensi risiko dan kerentanannya tidak teridentifikasi secara sistematis, meninggalkan organisasi rentan terhadap ancaman keamanan yang tidak terdeteksi.";
+        break;
+      case kontrol14 == 1 || kontrol14 <= 7:
+        kategori = "Risiko Sedang";
+        hasilKontrol14 =
+          "### Umpan balik Audit keamanan informasi(Memenuhi Kerangka Dasar)\n\n Organisasi telah menetapkan proses audit keamanan informasi yang dasar dan terjadwal. Audit dilakukan sesuai dengan jadwal tertentu, tetapi mungkin tidak selalu komprehensif atau mendalam. Meskipun telah ada upaya untuk memenuhi kerangka dasar ISO 27002, proses audit masih membutuhkan peningkatan agar menjadi lebih komprehensif dan efektif.";
+        break;
+      case kontrol14 == 8 || kontrol14 <= 15:
+        kategori = "Risiko Rendah";
+        hasilKontrol14 =
+          "### Umpan balik Audit keamanan informasi(Cukup Baik)\n\n Organisasi secara teratur melakukan audit keamanan informasi sesuai dengan kerangka dasar ISO 27002. Proses audit terjadwal dan mencakup sebagian besar kontrol keamanan informasi yang relevan. Meskipun audit telah dilakukan dengan baik, masih ada ruang untuk meningkatkan ketelitian dan mendalamnya evaluasi agar menghadapi ancaman keamanan yang semakin kompleks.";
+        break;
+      case kontrol14 == 16 || kontrol14 <= 21:
+        kategori = "Risiko Sangat Rendah";
+        hasilKontrol14 =
+          "### Umpan balik Audit keamanan informasi(Baik)\n\n Organisasi secara konsisten dan teratur melakukan audit keamanan informasi sesuai dengan standar ISO 27002.";
+        break;
+      default:
+        hasilKontrol14 = "null";
+        break;
+    }
+
+    const updatedHasilKontrol14 = [...hasilKontrol14];
+
+    updatedHasilKontrol14[0] = {
+      nama: "Nama aspek: " + aspek,
+      kontrolKeamanan: "Kontrol Keamanan: Audit keamanan informasi",
+      hasil: hasilKontrol14,
+      kategori: "Tingkat Risiko: " + kategori,
+      skor: " skor: " + kontrol14.toString(),
+    };
+
+    setHasilKontrol14(updatedHasilKontrol14);
+  };
 
   return (
     <>
@@ -855,949 +1377,393 @@ export default function Pakar() {
 
         {/* div form */}
         <div className={styles.form}>
-          {/* Kontrol keamanan 1 */}
+          {/* Kontrol keamanan 1 Kebijakan keamanan informasi*/}
           <div className={styles.parameter}>
-            <b>Kebijakan keamanan informasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[1]}</span>
+            <b>1. Kebijakan keamanan informasi</b>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment1[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters1[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk11(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk12(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk13(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk14(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk15(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk16(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment1[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk17(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 2 */}
+          <Button onClick={analisaKontrol1}>Analisa Kontrol Kebijakan Keamanan Informasi</Button>
+
+          <div className={styles.hasil}>
+            {hasilKontrol1.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* kontrol keamanan 2 Organisasi keamanan informasi */}
           <div className={styles.parameter}>
-            <b>Organisasi keamanan informasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[1]}</span>
+            <b>2. Organisasi keamanan informasi</b>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment2[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters2[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk21(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk22(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk23(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk24(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk25(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk26(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment2[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk27(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 3 */}
+          <Button onClick={analisaKontrol2}>Analisa Kontrol Organisasi Keamanan Informasi</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol2.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* kontrol keamanan 3 Manajemen aset*/}
           <div className={styles.parameter}>
-            <b>Manajemen aset</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[1]}</span>
+            <b>3. Manajemen aset</b>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment3[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters3[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk31(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk32(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk33(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk34(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk35(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk36(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment3[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk27(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 4 */}
+          <Button onClick={analisaKontrol3}>Analisa Kontrol Manajemen aset</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol3.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* kontrol keamanan 4 Keamanan sumber daya manusia*/}
           <div className={styles.parameter}>
             <b>Keamanan sumber daya manusia</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment4[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters2[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk41(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk42(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk43(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk44(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk45(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk46(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment4[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk47(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 5 */}
+          <Button onClick={analisaKontrol4}>Analisa kontrol Keamanan sumber daya manusia</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol4.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 5 Akses kontrol*/}
           <div className={styles.parameter}>
             <b>Akses kontrol</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment5[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters5[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk51(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk52(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk53(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk54(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk55(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk56(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment5[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk57(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 6 */}
+          <Button onClick={analisaKontrol5}>Analisa kontrol Akses kontrol</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol5.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 6 Perencanaan dan pemulihan bencana*/}
           <div className={styles.parameter}>
             <b>Perencanaan dan pemulihan bencana</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment6[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters6[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk61(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk62(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk63(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk64(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk65(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk66(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment6[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk67(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 7 */}
+          <Button onClick={analisaKontrol6}>Analisa kontrol Perencanaan dan pemulihan bencana</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol6.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 7 Manajemen keamanan operasional*/}
           <div className={styles.parameter}>
             <b>Manajemen keamanan operasional</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment7[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters7[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk71(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk72(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk73(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk74(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk75(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk76(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment7[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk77(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 8 */}
+          <Button onClick={analisaKontrol7}>Analisa kontrol Manajemen keamanan operasional</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol7.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 8 Keamanan komunikasi dan operasi*/}
           <div className={styles.parameter}>
             <b>Keamanan komunikasi dan operasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment8[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters8[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk81(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk82(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk83(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk84(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk85(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk86(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment8[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk87(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 9 */}
+          <Button onClick={analisaKontrol8}>Analisa kontrol Keamanan komunikasi dan operasi</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol8.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 9 Pengendalian akses sistem informasi*/}
           <div className={styles.parameter}>
             <b>Pengendalian akses sistem informasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment9[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters9[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk91(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk92(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk93(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk94(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk95(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk96(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment9[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk97(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 10 */}
+          <Button onClick={analisaKontrol9}>Analisa kontrol Pengendalian akses sistem informasi</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol9.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 10 Perolehan, pengembangan, dan pemeliharaan sistem informasi*/}
           <div className={styles.parameter}>
             <b>Perolehan, pengembangan, dan pemeliharaan sistem informasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment10[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters10[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk101(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk102(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk103(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk104(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk105(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk106(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment10[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk107(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 11 */}
+          <Button onClick={analisaKontrol10}>Analisa kontrol pemeliharaan sistem informasi</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol10.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 11 Pengelolaan ketidaksesuaian*/}
           <div className={styles.parameter}>
             <b>Pengelolaan ketidaksesuaian</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment11[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters11[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk111(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk112(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk113(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk114(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk115(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk116(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment11[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk117(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 12 */}
+          <Button onClick={analisaKontrol11}>Analisa kontrol Pengelolaan ketidaksesuaian</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol11.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 12 Aspek keamanan pada hubungan bisnis*/}
           <div className={styles.parameter}>
             <b>Aspek keamanan pada hubungan bisnis</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment12[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters12[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk121(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk122(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk123(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk124(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk125(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk126(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment12[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk127(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 13 */}
+          <Button onClick={analisaKontrol12}>Analisa kontrol Aspek keamanan pada hubungan bisnis</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol12.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 13 Kepatuhan terhadap standar*/}
           <div className={styles.parameter}>
             <b>Kepatuhan terhadap standar</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment13[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters13[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk131(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk132(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk133(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk134(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk135(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk136(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment13[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk137(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
-          {/* kontrol keamanan 14 */}
+          <Button onClick={analisaKontrol13}>Analisa kontrol Kepatuhan terhadap standa</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol13.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
+          {/* kontrol keamanan 14 Audit keamanan informasi*/}
           <div className={styles.parameter}>
             <b>Audit keamanan informasi</b>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[1]}</span>
+            {Array.from({ length: 7 }, (_, index) => (
+              <div className={styles.ul} key={index}>
+                <div className={styles.ulItem}>
+                  <li />
+                  <span>{assessment14[index + 1]}</span>
+                </div>
+                <select onChange={(e) => riskSetters14[index](parseInt(e.target.value))}>
+                  <OptionAssessment />
+                </select>
               </div>
-              <select onChange={(e) => setRisk141(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[2]}</span>
-              </div>
-              <select onChange={(e) => setRisk142(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[3]}</span>
-              </div>
-              <select onChange={(e) => setRisk143(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[4]}</span>
-              </div>
-              <select onChange={(e) => setRisk144(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[5]}</span>
-              </div>
-              <select onChange={(e) => setRisk145(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[6]}</span>
-              </div>
-              <select onChange={(e) => setRisk146(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
-            <div className={styles.ul}>
-              <div className={styles.ulItem}>
-                <li />
-                <span>{assessment14[7]}</span>
-              </div>
-              <select onChange={(e) => setRisk147(parseInt(e.target.value))}>
-                <OptionAssessment />
-              </select>
-            </div>
+            ))}
           </div>
         </div>
+        <Button onClick={analisaKontrol14}>Analisa kontrol Audit keamanan informasi</Button>
+          <div className={styles.hasil}>
+            {hasilKontrol14.map((item, index) => (
+              <div key={index}>
+                <h2>{item.nama}</h2>
+                <p>{item.skor}</p>
+                <p>{item.kontrolKeamanan}</p>
+                <p>{item.kategori}</p>
+                <p>{item.hasil}</p>
+              </div>
+            ))}
+          </div>
 
         {/* button action */}
         <Button color="primary" auto onClick={kirim}>
-          Analisa
+          Analisa Keseluruhan
         </Button>
 
         {/* div result */}
