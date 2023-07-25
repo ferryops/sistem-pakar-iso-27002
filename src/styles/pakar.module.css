@@ -145,6 +145,13 @@
   word-break: break-all;
 }
 
+.hasil {
+  white-space: pre-line;
+  background-color: #00000048;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
 /* phone */
 @media (max-width: 500px) {
   .main {
